@@ -21,11 +21,13 @@ public class CarListActivity extends AppCompatActivity {
     private List<Car> carList;
     private CarDatabaseHelper dbHelper;
 
+    // Tıklama işleminin etkin olup olmadığını kontrol etmek için bir boolean değişkeni
+    private boolean isItemClickable = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_list);
-
         dbHelper = new CarDatabaseHelper(this);
         carList = dbHelper.getAllCars();
 
@@ -34,13 +36,20 @@ public class CarListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
+        //isItemClickable değişkenini kontrol et
+        Intent intent = getIntent();
+        isItemClickable = intent.getBooleanExtra("isItemClickable", false);
+
         adapter.setOnItemClickListener(new CarAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Car clickedCar = carList.get(position);
-                Intent intent = new Intent(CarListActivity.this, UpdateCarActivity.class);
-                intent.putExtra("carId", clickedCar.getId());
-                startActivity(intent);
+                // Tıklama işlemi sadece isItemClickable değişkeni true olduğunda gerçekleşir
+                if (isItemClickable) {
+                    Car clickedCar = carList.get(position);
+                    Intent intent = new Intent(CarListActivity.this, UpdateCarActivity.class);
+                    intent.putExtra("carId", clickedCar.getId());
+                    startActivity(intent);
+                }
             }
         });
     }
