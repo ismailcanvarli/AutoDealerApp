@@ -16,6 +16,8 @@ public class Car {
         this.color = color;
         this.price = price;
     }
+    public Car() {
+    }
 
     public String getBrand() {
         return brand;

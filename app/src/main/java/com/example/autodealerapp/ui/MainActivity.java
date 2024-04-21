@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Araçları gösterme aktivitesini başlat
+                Intent intent = new Intent(MainActivity.this, CarListActivity.class);
+                startActivity(intent);
             }
         });
 
