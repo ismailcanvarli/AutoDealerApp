@@ -1,5 +1,6 @@
 package com.example.autodealerapp.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,16 +26,22 @@ public class CarListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_list);
 
-        // Veritabanı yardımcı sınıfını oluştur
         dbHelper = new CarDatabaseHelper(this);
-
-        // Veritabanından araçları al
         carList = dbHelper.getAllCars();
 
-        // RecyclerView ve adaptörü yapılandır
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new CarAdapter(carList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new CarAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Car clickedCar = carList.get(position);
+                Intent intent = new Intent(CarListActivity.this, UpdateCarActivity.class);
+                intent.putExtra("carId", clickedCar.getId());
+                startActivity(intent);
+            }
+        });
     }
 }

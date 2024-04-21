@@ -47,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
         updateCarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Araç güncelleme aktivitesini başlat
+                // Araçları gösterme aktivitesini başlat
+                Intent intent = new Intent(MainActivity.this, CarListActivity.class);
+                startActivity(intent);
             }
         });
 

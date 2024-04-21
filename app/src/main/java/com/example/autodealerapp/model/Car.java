@@ -1,6 +1,7 @@
 package com.example.autodealerapp.model;
 
 public class Car {
+    private int id;
     private String brand;
     private String model;
     private int year;
@@ -8,7 +9,11 @@ public class Car {
     private String color;
     private double price;
 
-    public Car(String brand, String model, int year, int kilometer, String color, double price) {
+    public Car() {
+    }
+
+    public Car(int id, String brand, String model, int year, int kilometer, String color, double price) {
+        this.id = id;
         this.brand = brand;
         this.model = model;
         this.year = year;
@@ -16,7 +21,13 @@ public class Car {
         this.color = color;
         this.price = price;
     }
-    public Car() {
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getBrand() {

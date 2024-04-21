@@ -1,5 +1,6 @@
 package com.example.autodealerapp.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ import com.example.autodealerapp.R;
 import com.example.autodealerapp.data.CarDatabaseHelper;
 import com.example.autodealerapp.model.Car;
 
-public class AddCarActivity extends AppCompatActivity {
+public class UpdateCarActivity extends AppCompatActivity {
 
     private EditText brandEditText;
     private EditText modelEditText;
@@ -20,31 +21,42 @@ public class AddCarActivity extends AppCompatActivity {
     private EditText kilometerEditText;
     private EditText colorEditText;
     private EditText priceEditText;
+    private Button updateButton;
 
     private CarDatabaseHelper dbHelper;
+    private Car car;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_car);
+        setContentView(R.layout.activity_update_car);
 
-        // EditText alanlarını bul
         brandEditText = findViewById(R.id.brandEditText);
         modelEditText = findViewById(R.id.modelEditText);
         yearEditText = findViewById(R.id.yearEditText);
         kilometerEditText = findViewById(R.id.kilometerEditText);
         colorEditText = findViewById(R.id.colorEditText);
         priceEditText = findViewById(R.id.priceEditText);
+        updateButton = findViewById(R.id.updateButton);
 
-        // Veritabanı yardımcı sınıfını oluştur
         dbHelper = new CarDatabaseHelper(this);
 
-        // Kaydet butonunu bul ve tıklama olayını ekle
-        Button saveButton = findViewById(R.id.saveButton);
-        saveButton.setOnClickListener(new View.OnClickListener() {
+        Intent intent = getIntent();
+        int carId = intent.getIntExtra("carId", -1);
+        car = dbHelper.getCar(carId);
+
+        if (car != null) {
+            brandEditText.setText(car.getBrand());
+            modelEditText.setText(car.getModel());
+            yearEditText.setText(String.valueOf(car.getYear()));
+            kilometerEditText.setText(String.valueOf(car.getKilometer()));
+            colorEditText.setText(car.getColor());
+            priceEditText.setText(String.valueOf(car.getPrice()));
+        }
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Kullanıcıdan alınan bilgilerle yeni bir araç oluştur
                 String brand = brandEditText.getText().toString();
                 String model = modelEditText.getText().toString();
                 int year = Integer.parseInt(yearEditText.getText().toString());
@@ -52,23 +64,16 @@ public class AddCarActivity extends AppCompatActivity {
                 String color = colorEditText.getText().toString();
                 double price = Double.parseDouble(priceEditText.getText().toString());
 
-                Car newCar = new Car();
-                newCar.setBrand(brand);
-                newCar.setModel(model);
-                newCar.setYear(year);
-                newCar.setKilometer(kilometer);
-                newCar.setColor(color);
-                newCar.setPrice(price);
+                car.setBrand(brand);
+                car.setModel(model);
+                car.setYear(year);
+                car.setKilometer(kilometer);
+                car.setColor(color);
+                car.setPrice(price);
 
-                // Veritabanına yeni aracı ekle
-                Car result = dbHelper.addCar(newCar);
-
-                if (result != null) {
-                    Toast.makeText(AddCarActivity.this, "Car added succesfully", Toast.LENGTH_LONG).show();
-                    finish();
-                } else {
-                    Toast.makeText(AddCarActivity.this,"Car not added. " , Toast.LENGTH_LONG).show();
-                }
+                dbHelper.updateCar(car);
+                Toast.makeText(UpdateCarActivity.this, "Car updated successfully", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
