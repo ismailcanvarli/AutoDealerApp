@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titleTextView"
-        android:layout_margin="@dimen/medium_margin"
+        android:layout_margin="@dimen/small_margin"
         android:hint="Brand" />
 
     <EditText
@@ -68,7 +68,7 @@
         android:layout_margin="@dimen/small_margin"/>
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/saveCarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"

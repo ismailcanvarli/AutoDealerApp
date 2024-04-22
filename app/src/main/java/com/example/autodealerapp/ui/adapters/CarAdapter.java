@@ -78,7 +78,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
             });
         }
 
-        public void bind(Car car) {
+        public void bind(@NonNull Car car) {
             brandTextView.setText("Brand: " + car.getBrand());
             modelTextView.setText("Model: " + car.getModel());
             yearTextView.setText("Year: " + car.getYear());
