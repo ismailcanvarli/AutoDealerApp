@@ -9,9 +9,6 @@ public class Car {
     private String color;
     private double price;
 
-    public Car() {
-    }
-
     public Car(int id, String brand, String model, int year, int kilometer, String color, double price) {
         this.id = id;
         this.brand = brand;

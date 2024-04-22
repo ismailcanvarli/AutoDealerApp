@@ -2,17 +2,12 @@ package com.example.autodealerapp.data;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
 import com.example.autodealerapp.helpers.Constants;
-import com.example.autodealerapp.model.Car;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DbHelper extends SQLiteOpenHelper {
 
@@ -57,6 +52,4 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
         return id;
     }
-
-
 }
