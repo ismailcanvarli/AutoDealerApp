@@ -40,36 +40,48 @@ public class AddCarActivity extends AppCompatActivity {
         dbHelper = new CarDatabaseHelper(this);
 
         // Kaydet butonunu bul ve tıklama olayını ekle
-        Button saveButton = findViewById(R.id.saveButton);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Kullanıcıdan alınan bilgilerle yeni bir araç oluştur
-                String brand = brandEditText.getText().toString();
-                String model = modelEditText.getText().toString();
-                int year = Integer.parseInt(yearEditText.getText().toString());
-                int kilometer = Integer.parseInt(kilometerEditText.getText().toString());
-                String color = colorEditText.getText().toString();
-                double price = Double.parseDouble(priceEditText.getText().toString());
+        Button saveCarButton = findViewById(R.id.saveCarButton);
 
-                Car newCar = new Car();
-                newCar.setBrand(brand);
-                newCar.setModel(model);
-                newCar.setYear(year);
-                newCar.setKilometer(kilometer);
-                newCar.setColor(color);
-                newCar.setPrice(price);
-
-                // Veritabanına yeni aracı ekle
-                Car result = dbHelper.addCar(newCar);
-
-                if (result != null) {
-                    Toast.makeText(AddCarActivity.this, "Car added succesfully", Toast.LENGTH_LONG).show();
-                    finish();
-                } else {
-                    Toast.makeText(AddCarActivity.this,"Car not added. " , Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+        saveCarButton.setOnClickListener(v -> saveCarData());
     }
+
+   private void saveCarData() {
+    // Kullanıcıdan alınan bilgilerle yeni bir araç oluştur
+    String brand = brandEditText.getText().toString();
+    String model = modelEditText.getText().toString();
+    String color = colorEditText.getText().toString();
+    String yearString = yearEditText.getText().toString();
+    String kilometerString = kilometerEditText.getText().toString();
+    String priceString = priceEditText.getText().toString();
+
+    if (brand.isEmpty() || model.isEmpty() || color.isEmpty() || yearString.isEmpty() || kilometerString.isEmpty() || priceString.isEmpty()) {
+        Toast.makeText(AddCarActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+    } else {
+        int year = Integer.parseInt(yearString);
+        int kilometer = Integer.parseInt(kilometerString);
+        double price = Double.parseDouble(priceString);
+
+        if (year < 1900 || year > 2024) {
+            Toast.makeText(AddCarActivity.this, "Please enter a valid year", Toast.LENGTH_SHORT).show();
+        } else if (kilometer < 0) {
+            Toast.makeText(AddCarActivity.this, "Please enter a valid kilometer", Toast.LENGTH_SHORT).show();
+        } else if (price < 0) {
+            Toast.makeText(AddCarActivity.this, "Please enter a valid price", Toast.LENGTH_SHORT).show();
+        } else {
+            Car newCar = new Car();
+
+            newCar.setBrand(brand);
+            newCar.setModel(model);
+            newCar.setYear(year);
+            newCar.setKilometer(kilometer);
+            newCar.setColor(color);
+            newCar.setPrice(price);
+
+            // Veritabanına yeni aracı ekle
+            Car result = dbHelper.addCar(newCar);
+            Toast.makeText(AddCarActivity.this, "Car added succesfully", Toast.LENGTH_LONG).show();
+            finish();
+        }
+    }
+}
 }
