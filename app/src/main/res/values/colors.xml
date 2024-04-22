@@ -12,9 +12,10 @@
     <color name="brown">#A52A2A</color>
     <color name="gray">#808080</color>
 
-    <color name="colorPrimary">#B71C1C</color>
-    <color name="colorSecondary">#FFD600</color>
-    <color name="colorTextPrimary">#FFFFFF</color>
-    <color name="colorBackground">#263238</color>
-    <color name="colorAccent">#4CAF50</color>
+    <color name="colorPrimary">#272643</color> <!-- dark blue -->
+    <color name="colorSecondary">#4CAF50</color> <!-- green -->
+    <color name="colorTextPrimary">#FFFFFF</color> <!-- white -->
+    <color name="colorBackground">#272643</color> <!-- dark blue -->
+    <color name="colorAccent">#FFEB3B</color>  <!-- yellow -->
+
 </resources>
