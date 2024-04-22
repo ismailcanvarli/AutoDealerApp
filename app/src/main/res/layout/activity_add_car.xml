@@ -10,10 +10,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_new_car"
-        android:textSize="24sp"
+        android:textSize="@dimen/big_text_size"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
         android:layout_margin="@dimen/big_margin"/>
 
     <EditText
@@ -21,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titleTextView"
-        android:layout_margin="@dimen/big_margin"
+        android:layout_margin="@dimen/medium_margin"
         android:hint="Brand" />
 
     <EditText
@@ -30,7 +29,7 @@
         android:layout_height="wrap_content"
         android:hint="Model"
         android:layout_below="@id/brandEditText"
-        android:layout_margin="16dp"/>
+        android:layout_margin="@dimen/small_margin"/>
 
     <EditText
         android:id="@+id/yearEditText"
@@ -39,7 +38,7 @@
         android:hint="Year"
         android:inputType="number"
         android:layout_below="@id/modelEditText"
-        android:layout_margin="16dp"/>
+        android:layout_margin="@dimen/small_margin"/>
 
     <EditText
         android:id="@+id/kilometerEditText"
@@ -48,7 +47,7 @@
         android:hint="Kilometer"
         android:inputType="number"
         android:layout_below="@id/yearEditText"
-        android:layout_margin="16dp"/>
+        android:layout_margin="@dimen/small_margin"/>
 
     <EditText
         android:id="@+id/colorEditText"
@@ -56,7 +55,8 @@
         android:layout_height="wrap_content"
         android:hint="Color"
         android:layout_below="@id/kilometerEditText"
-        android:layout_margin="16dp"/>
+        android:layout_margin="@dimen/small_margin"
+        />
 
     <EditText
         android:id="@+id/priceEditText"
@@ -65,7 +65,7 @@
         android:hint="Price"
         android:inputType="numberDecimal"
         android:layout_below="@id/colorEditText"
-        android:layout_margin="16dp"/>
+        android:layout_margin="@dimen/small_margin"/>
 
     <Button
         android:id="@+id/saveButton"
@@ -74,6 +74,6 @@
         android:text="Save"
         android:layout_below="@id/priceEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="@dimen/small_margin"/>
 
 </RelativeLayout>
