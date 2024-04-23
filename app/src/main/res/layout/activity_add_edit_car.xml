@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSecondary"
+    tools:context=".ui.AddEditCar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/brandEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:hint="@string/brand"
+            android:inputType="text"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextPrimary" />
+
+        <EditText
+            android:id="@+id/modelEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:hint="Model"
+            android:inputType="text"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextPrimary" />
+
+        <EditText
+            android:id="@+id/yearEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:hint="Year"
+            android:inputType="number"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextPrimary" />
+
+        <EditText
+            android:id="@+id/kilometerEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:hint="Kilometer"
+            android:inputType="number"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextPrimary" />
+
+        <EditText
+            android:id="@+id/colorEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:hint="Color"
+            android:inputType="text"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextPrimary" />
+
+        <EditText
+            android:id="@+id/priceEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:hint="Price"
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextPrimary" />
+
+    </LinearLayout>
+
+
+    <!-- Fab Button araba ekelemek için -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/small_margin"
+        android:backgroundTint="@color/colorTextPrimary"
+        android:contentDescription="TODO"
+        android:elevation="@dimen/card_elevation"
+        android:src="@drawable/baseline_add_24"
+        android:tint="@color/white"
+        app:pressedTranslationZ="10dp" />
+
+</RelativeLayout>

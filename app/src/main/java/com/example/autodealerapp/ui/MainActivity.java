@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
 
         fab.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AddCarActivity.class);
+            Intent intent = new Intent(MainActivity.this, AddEditCar.class);
             startActivity(intent);
         });
 

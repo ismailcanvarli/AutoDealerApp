@@ -19,7 +19,7 @@
             android:name=".ui.CarListActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.AddCarActivity"
+            android:name=".ui.AddEditCar"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,17 +9,15 @@
     tools:context=".ui.MainActivity">
 
     <!-- Fab Button araba ekelemek için -->
-
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/small_margin"
         android:contentDescription="TODO"
-        android:elevation="5dp"
+        android:elevation="@dimen/card_elevation"
         android:src="@drawable/baseline_add_24"
         android:tint="@color/white"
         app:pressedTranslationZ="10dp"

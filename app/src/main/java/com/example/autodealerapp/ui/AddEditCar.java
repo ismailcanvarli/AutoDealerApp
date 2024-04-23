@@ -10,9 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.autodealerapp.R;
 import com.example.autodealerapp.data.DbHelper;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class AddCarActivity extends AppCompatActivity {
+public class AddEditCar extends AppCompatActivity {
 
+    // EditText alanlarını tanımla
     private EditText brandEditText;
     private EditText modelEditText;
     private EditText yearEditText;
@@ -20,19 +22,25 @@ public class AddCarActivity extends AppCompatActivity {
     private EditText colorEditText;
     private EditText priceEditText;
 
+    // Ekleme butonunu tanımla
+    private FloatingActionButton fab;
+
+    // Araç özelliklerini tutacak değişkenler
     private String model;
     private String color;
     private String yearString;
     private String kilometerString;
     private String priceString;
 
+    //Aksiyon çubuğunu tanımla
     private ActionBar actionBar;
+    // Veritabanı yardımcı sınıfını tanımlandı
     private DbHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_car);
+        setContentView(R.layout.activity_add_edit_car);
 
         // Veritabanı yardımcı sınıfını oluştur
         dbHelper = new DbHelper(this);
@@ -40,6 +48,7 @@ public class AddCarActivity extends AppCompatActivity {
         // ActionBar'ı etkinleştir
         actionBar = getSupportActionBar();
         actionBar.setTitle("Add Car");
+
         // Geri butonunu etkinleştir
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
@@ -52,10 +61,10 @@ public class AddCarActivity extends AppCompatActivity {
         colorEditText = findViewById(R.id.colorEditText);
         priceEditText = findViewById(R.id.priceEditText);
 
-        // Kaydet butonunu bul ve tıklama olayını ekle
-        Button saveCarButton = findViewById(R.id.saveCarButton);
-
-        saveCarButton.setOnClickListener(v -> saveCarData());
+        // Ekleme butonunu bul
+        fab.setOnClickListener(v -> {
+            saveCarData();
+        });
     }
 
     private void saveCarData() {
@@ -71,18 +80,18 @@ public class AddCarActivity extends AppCompatActivity {
         String timestamp = String.valueOf(System.currentTimeMillis());
 
         if (brand.isEmpty() || model.isEmpty() || color.isEmpty() || yearString.isEmpty() || kilometerString.isEmpty() || priceString.isEmpty()) {
-            Toast.makeText(AddCarActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AddEditCar.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
         } else {
             int year = Integer.parseInt(yearString);
             int kilometer = Integer.parseInt(kilometerString);
             double price = Double.parseDouble(priceString);
 
             if (year < 1900 || year > 2024) {
-                Toast.makeText(AddCarActivity.this, "Please enter a valid year", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddEditCar.this, "Please enter a valid year", Toast.LENGTH_SHORT).show();
             } else if (kilometer < 0) {
-                Toast.makeText(AddCarActivity.this, "Please enter a valid kilometer", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddEditCar.this, "Please enter a valid kilometer", Toast.LENGTH_SHORT).show();
             } else if (price < 0) {
-                Toast.makeText(AddCarActivity.this, "Please enter a valid price", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddEditCar.this, "Please enter a valid price", Toast.LENGTH_SHORT).show();
             } else {
 
                 // Veritabanına yeni aracı ekle
@@ -98,7 +107,7 @@ public class AddCarActivity extends AppCompatActivity {
                 );
 
                 // Ekleme işlemi başarılıysa kullanıcıya mesaj göster
-                Toast.makeText(AddCarActivity.this, "Car added succesfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddEditCar.this, "Car added succesfully", Toast.LENGTH_SHORT).show();
             }
         }
     }
