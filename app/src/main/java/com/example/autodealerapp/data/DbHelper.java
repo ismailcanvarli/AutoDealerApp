@@ -11,6 +11,7 @@ import com.example.autodealerapp.helpers.Constants;
 
 public class DbHelper extends SQLiteOpenHelper {
 
+    // DbHelper sınıfı oluşturulur
     public DbHelper(@Nullable Context context) {
         super(context, Constants.DATABASE_NAME, null, Constants.DATABASE_VERSION);
     }
