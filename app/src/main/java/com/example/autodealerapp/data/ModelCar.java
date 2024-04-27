@@ -7,6 +7,10 @@ public class ModelCar {
     private String year;
     private String kilometer;
     private String color;
+    private String price;
+    private String addedTime;
+    private String updatedTime;
+    private String note;
 
     public String getId() {
         return id;
@@ -88,8 +92,6 @@ public class ModelCar {
         this.note = note;
     }
 
-    private String price;
-
     public ModelCar(String id, String brand, String model, String year, String kilometer, String color, String price, String addedTime, String updatedTime, String note) {
         this.id = id;
         this.brand = brand;
@@ -102,11 +104,5 @@ public class ModelCar {
         this.updatedTime = updatedTime;
         this.note = note;
     }
-
-    private String addedTime;
-    private String updatedTime;
-    private String note;
-
-
 
 }

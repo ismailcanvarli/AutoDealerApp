@@ -34,7 +34,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     // Araç ekleme işlemi
-    public long insertCar(String brand, String model, int year, int kilometer, String color, double price, String addedDate, String updatedDate) {
+    public long insertCar(String brand, String model, String year, String kilometer, String color, String price, String addedDate, String updatedDate) {
         // Veritabanı yazılabilir modda açılır
         SQLiteDatabase db = this.getWritableDatabase();
         // ContentValues nesnesi oluşturulur ve veriler eklenir
@@ -57,7 +57,6 @@ public class DbHelper extends SQLiteOpenHelper {
         return id;
     }
 
-
     public ArrayList<ModelCar> getAllData() {
         // ModelCar listesi oluşturulur
         ArrayList<ModelCar> carArrayList = new ArrayList<>();
@@ -66,23 +65,25 @@ public class DbHelper extends SQLiteOpenHelper {
         String selecetQuery = "SELECT * FROM " + Constants.TABLE_NAME;
 
         // Veritabanı okuma modunda açılır
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = getWritableDatabase();
 
         // Sorguyu çalıştır ve sonucu al
         Cursor cursor = db.rawQuery(selecetQuery, null);
-
 
         // Verileri al ve modelCarList'e ekle
         if (cursor.moveToFirst()) {
             do {
                 ModelCar modelCar = new ModelCar(
-                        cursor.getInt(0), // COLUMN_ID
-                        cursor.getString(1), // COLUMN_BRAND
-                        cursor.getString(2), // COLUMN_MODEL
-                        cursor.getInt(3), // COLUMN_YEAR
-                        cursor.getInt(4), // COLUMN_KILOMETER
-                        cursor.getString(5), // COLUMN_COLOR
-                        cursor.getDouble(6) // COLUMN_PRICE
+                        "" + cursor.getInt(cursor.getColumnIndexOrThrow(Constants.COLUMN_ID)),
+                        "" + cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_BRAND)),
+                        "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_MODEL)),
+                        "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_YEAR)),
+                        "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_KILOMETER)),
+                        "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_COLOR)),
+                        "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE)),
+                        "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_NOTE)),
+                        "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_ADDED_DATE)),
+                        "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_UPDATED_DATE))
                 );
 
                 carArrayList.add(modelCar);
