@@ -2,12 +2,15 @@ package com.example.autodealerapp.data;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
 import com.example.autodealerapp.helpers.Constants;
+
+import java.util.ArrayList;
 
 public class DbHelper extends SQLiteOpenHelper {
 
@@ -53,4 +56,41 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
         return id;
     }
+
+
+    public ArrayList<ModelCar> getAllData() {
+        // ModelCar listesi oluşturulur
+        ArrayList<ModelCar> carArrayList = new ArrayList<>();
+
+        // Tüm verileri getirme sorgusu
+        String selecetQuery = "SELECT * FROM " + Constants.TABLE_NAME;
+
+        // Veritabanı okuma modunda açılır
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // Sorguyu çalıştır ve sonucu al
+        Cursor cursor = db.rawQuery(selecetQuery, null);
+
+
+        // Verileri al ve modelCarList'e ekle
+        if (cursor.moveToFirst()) {
+            do {
+                ModelCar modelCar = new ModelCar(
+                        cursor.getInt(0), // COLUMN_ID
+                        cursor.getString(1), // COLUMN_BRAND
+                        cursor.getString(2), // COLUMN_MODEL
+                        cursor.getInt(3), // COLUMN_YEAR
+                        cursor.getInt(4), // COLUMN_KILOMETER
+                        cursor.getString(5), // COLUMN_COLOR
+                        cursor.getDouble(6) // COLUMN_PRICE
+                );
+
+                carArrayList.add(modelCar);
+            } while (cursor.moveToNext());
+        }
+
+        db.close();
+        return carArrayList;
+    }
+
 }
