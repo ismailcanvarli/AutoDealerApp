@@ -19,7 +19,6 @@ public class Constants {
     public static final String COLUMN_KILOMETER = "KILOMETER";
     public static final String COLUMN_COLOR = "COLOR";
     public static final String COLUMN_PRICE = "PRICE";
-    public  static final String COLUMN_NOTE = "NOTE";
     public static final String COLUMN_ADDED_DATE = "ADDED_DATE";
     public static final String COLUMN_UPDATED_DATE = "UPDATED_DATE";
 
@@ -32,7 +31,6 @@ public class Constants {
             + COLUMN_KILOMETER + " INTEGER,"
             + COLUMN_COLOR + " TEXT,"
             + COLUMN_PRICE + " REAL,"
-            + COLUMN_NOTE + " TEXT,"
             + COLUMN_ADDED_DATE + " TEXT,"
             + COLUMN_UPDATED_DATE + " TEXT"
             + ")";

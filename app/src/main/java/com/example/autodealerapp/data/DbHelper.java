@@ -81,7 +81,6 @@ public class DbHelper extends SQLiteOpenHelper {
                         "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_KILOMETER)),
                         "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_COLOR)),
                         "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE)),
-                        "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_NOTE)),
                         "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_ADDED_DATE)),
                         "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_UPDATED_DATE))
                 );

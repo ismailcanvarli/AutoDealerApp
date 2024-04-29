@@ -10,7 +10,6 @@ public class ModelCar {
     private String price;
     private String addedTime;
     private String updatedTime;
-    private String note;
 
     public String getId() {
         return id;
@@ -84,15 +83,7 @@ public class ModelCar {
         this.updatedTime = updatedTime;
     }
 
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public ModelCar(String id, String brand, String model, String year, String kilometer, String color, String price, String addedTime, String updatedTime, String note) {
+    public ModelCar(String id, String brand, String model, String year, String kilometer, String color, String price, String addedTime, String updatedTime) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -102,7 +93,6 @@ public class ModelCar {
         this.price = price;
         this.addedTime = addedTime;
         this.updatedTime = updatedTime;
-        this.note = note;
     }
 
 }

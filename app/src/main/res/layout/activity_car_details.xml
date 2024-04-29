@@ -176,14 +176,6 @@
 
         </TableLayout>
 
-        <TextView
-            android:id="@+id/noteTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/medium_padding"
-            android:textColor="@color/colorTextPrimary"
-            android:textSize="@dimen/big_text_size"
-            tools:text="@string/you_can_note_here" />
     </LinearLayout>
 
 </RelativeLayout>

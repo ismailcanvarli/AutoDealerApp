@@ -26,7 +26,6 @@ public class CarDetails extends AppCompatActivity {
     private TextView priceTv;
     private TextView addedTimeTv;
     private TextView updatedTimeTv;
-    private TextView noteTv;
 
     private String id;
 
@@ -53,7 +52,6 @@ public class CarDetails extends AppCompatActivity {
         priceTv = findViewById(R.id.priceTv);
         addedTimeTv = findViewById(R.id.addedTimeTv);
         updatedTimeTv = findViewById(R.id.updatedTimeTv);
-        noteTv = findViewById(R.id.noteTv);
 
         loadDataById();
 
@@ -75,7 +73,6 @@ public class CarDetails extends AppCompatActivity {
                 String kilometer = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_KILOMETER));
                 String color = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_COLOR));
                 String price = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE));
-                String note = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_NOTE));
                 String addedTime = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_ADDED_DATE));
                 String updatedTime = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_UPDATED_DATE));
 
@@ -94,7 +91,6 @@ public class CarDetails extends AppCompatActivity {
                 kilometerTv.setText(kilometer);
                 colorTv.setText(color);
                 priceTv.setText(price);
-                noteTv.setText(note);
                 addedTimeTv.setText(addedDate);
                 updatedTimeTv.setText(updatedDate);
 

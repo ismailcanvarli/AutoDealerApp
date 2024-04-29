@@ -1,7 +1,6 @@
 package com.example.autodealerapp.ui;
 
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -14,6 +13,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class AddEditCar extends AppCompatActivity {
 
+    // Ekleme butonunu tanımla
+    private FloatingActionButton fab;
+
     // EditText alanlarını tanımla
     private EditText brandEditText;
     private EditText modelEditText;
@@ -22,15 +24,16 @@ public class AddEditCar extends AppCompatActivity {
     private EditText colorEditText;
     private EditText priceEditText;
 
-    // Ekleme butonunu tanımla
-    private FloatingActionButton fab;
 
     // Araç özelliklerini tutacak değişkenler
     private String model;
+    private String brand;
     private String color;
     private String yearString;
     private String kilometerString;
     private String priceString;
+    private String addedTime;
+    private String updatedTime;
 
     //Aksiyon çubuğunu tanımla
     private ActionBar actionBar;
@@ -45,9 +48,8 @@ public class AddEditCar extends AppCompatActivity {
         // Veritabanı yardımcı sınıfını oluştur
         dbHelper = new DbHelper(this);
 
-        // ActionBar'ı etkinleştir
+        // ActionBar'ı tanımla
         actionBar = getSupportActionBar();
-        actionBar.setTitle("Add Car");
 
         // Geri butonunu etkinleştir
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -60,6 +62,17 @@ public class AddEditCar extends AppCompatActivity {
         kilometerEditText = findViewById(R.id.kilometerEditText);
         colorEditText = findViewById(R.id.colorEditText);
         priceEditText = findViewById(R.id.priceEditText);
+
+        fab = findViewById(R.id.fab);
+
+        fab.setOnClickListener(v -> {
+            saveCarData();
+        });
+
+
+        actionBar.setTitle("Add Car");
+
+
 
         // Ekleme butonunu bul
         fab.setOnClickListener(v -> {
