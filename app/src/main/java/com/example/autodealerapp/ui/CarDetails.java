@@ -51,9 +51,10 @@ public class CarDetails extends AppCompatActivity {
         actionBar = getSupportActionBar();
 
         // Geri butonunu etkinleştir
+        assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setTitle("Add Car");
+        actionBar.setTitle("Car Details");
 
         // View nesnelerini tanımla
         brandTv = findViewById(R.id.brandTv);
@@ -111,8 +112,6 @@ public class CarDetails extends AppCompatActivity {
                 } while (cursor.moveToNext());
             }
             db.close();
-        } else {
-            // id null, hata işlemi yapabilirsiniz
         }
     }
 

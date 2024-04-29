@@ -60,15 +60,10 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
 
 
         // View nesnelerine araç özelliklerini ata
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, CarDetails.class);
-                intent.putExtra("carId", id);
-                context.startActivity(intent);
-            }
-
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, CarDetails.class);
+            intent.putExtra("carId", id);
+            context.startActivity(intent);
         });
 
     }
@@ -80,7 +75,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     }
 
     // Araç listesini tutacak değişken tanımla
-    class CarViewHolder extends RecyclerView.ViewHolder {
+    static class CarViewHolder extends RecyclerView.ViewHolder {
         // View nesnelerini tanımla
         TextView brandTextView;
         TextView modelTextView;

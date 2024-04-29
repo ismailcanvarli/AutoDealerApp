@@ -50,6 +50,7 @@ public class AddEditCar extends AppCompatActivity {
         actionBar = getSupportActionBar();
 
         // Geri butonunu etkinleştir
+        assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setTitle("Add Car");
@@ -65,9 +66,7 @@ public class AddEditCar extends AppCompatActivity {
         fab = findViewById(R.id.fab);
 
         // Ekleme butonuna tıklanınca yeni aracı veritabanına ekle
-        fab.setOnClickListener(v -> {
-            saveCarData();
-        });
+        fab.setOnClickListener(v -> saveCarData());
 
         actionBar.setTitle("Add Car");
 
