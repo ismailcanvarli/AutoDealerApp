@@ -32,6 +32,15 @@
             android:textSize="@dimen/medium_text_size" />
 
         <TextView
+            android:id="@+id/colorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tiny_margin"
+            android:text="@string/color"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/medium_text_size" />
+
+        <TextView
             android:id="@+id/yearTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,15 +55,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/tiny_margin"
             android:text="@string/kilometer"
-            android:textColor="@color/colorTextPrimary"
-            android:textSize="@dimen/medium_text_size" />
-
-        <TextView
-            android:id="@+id/colorTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/tiny_margin"
-            android:text="@string/color"
             android:textColor="@color/colorTextPrimary"
             android:textSize="@dimen/medium_text_size" />
 

@@ -12,5 +12,7 @@
     <string name="kilometer">Kilometer </string>
     <string name="color">Color </string>
     <string name="price">Price </string>
+    <string name="added_time">Added Time </string>
+    <string name="updated_time">Updated Time </string>
 
 </resources>

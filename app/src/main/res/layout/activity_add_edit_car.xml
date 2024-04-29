@@ -34,26 +34,6 @@
             android:textColorHint="@color/colorTextPrimary" />
 
         <EditText
-            android:id="@+id/yearEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/small_margin"
-            android:hint="@string/year"
-            android:inputType="number"
-            android:textColor="@color/colorTextPrimary"
-            android:textColorHint="@color/colorTextPrimary" />
-
-        <EditText
-            android:id="@+id/kilometerEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/small_margin"
-            android:hint="@string/kilometer"
-            android:inputType="number"
-            android:textColor="@color/colorTextPrimary"
-            android:textColorHint="@color/colorTextPrimary" />
-
-        <EditText
             android:id="@+id/colorEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,12 +44,32 @@
             android:textColorHint="@color/colorTextPrimary" />
 
         <EditText
+            android:id="@+id/yearEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:hint="@string/year"
+            android:inputType="text"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextPrimary" />
+
+        <EditText
+            android:id="@+id/kilometerEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:hint="@string/kilometer"
+            android:inputType="text"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextPrimary" />
+
+        <EditText
             android:id="@+id/priceEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_margin"
             android:hint="@string/price"
-            android:inputType="numberDecimal"
+            android:inputType="text"
             android:textColor="@color/colorTextPrimary"
             android:textColorHint="@color/colorTextPrimary" />
 
