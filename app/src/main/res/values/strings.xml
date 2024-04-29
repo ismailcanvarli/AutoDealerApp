@@ -1,10 +1,5 @@
 <resources>
     <string name="app_name">Auto Dealer App</string>
-    <string name="add_new_car">Add New Car</string>
-    <string name="car_list">Car List</string>
-    <string name="update_car">Update Car</string>
-    <string name="update">update</string>
-    <string name="delete">delete</string>
     <string name="auto_dealer_app">Auto Dealer App</string>
     <string name="brand">Brand </string>
     <string name="model">Model </string>

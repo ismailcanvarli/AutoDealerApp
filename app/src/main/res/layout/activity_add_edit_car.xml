@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_margin"
             android:hint="@string/year"
-            android:inputType="text"
+            android:inputType="number"
             android:textColor="@color/colorTextPrimary"
             android:textColorHint="@color/colorTextPrimary" />
 
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_margin"
             android:hint="@string/kilometer"
-            android:inputType="text"
+            android:inputType="number"
             android:textColor="@color/colorTextPrimary"
             android:textColorHint="@color/colorTextPrimary" />
 
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_margin"
             android:hint="@string/price"
-            android:inputType="text"
+            android:inputType="number"
             android:textColor="@color/colorTextPrimary"
             android:textColorHint="@color/colorTextPrimary" />
 
