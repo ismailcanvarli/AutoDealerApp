@@ -51,6 +51,13 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         String color = modelCar.getColor();
         String price = modelCar.getPrice();
 
+        holder.brandTextView.setText(brand);
+        holder.modelTextView.setText(model);
+        holder.yearTextView.setText(year);
+        holder.kilometerTextView.setText(kilometer);
+        holder.colorTextView.setText(color);
+        holder.priceTextView.setText(price);
+
 
         // View nesnelerine araç özelliklerini ata
         holder.itemView.setOnClickListener(new View.OnClickListener() {
