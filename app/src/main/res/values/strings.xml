@@ -6,11 +6,11 @@
     <string name="update">update</string>
     <string name="delete">delete</string>
     <string name="auto_dealer_app">Auto Dealer App</string>
-    <string name="brand">Brand:</string>
-    <string name="model">Model:</string>
-    <string name="year">Year:</string>
-    <string name="kilometer">Kilometer:</string>
-    <string name="color">Color:</string>
-    <string name="price">Price:</string>
+    <string name="brand">Brand </string>
+    <string name="model">Model </string>
+    <string name="year">Year </string>
+    <string name="kilometer">Kilometer </string>
+    <string name="color">Color </string>
+    <string name="price">Price </string>
 
 </resources>

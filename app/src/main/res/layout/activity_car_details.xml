@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/medium_padding"
-            android:stretchColumns="2">
+            android:stretchColumns="1">
 
             <TableRow>
 
@@ -33,7 +33,6 @@
                     android:id="@+id/brandTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" Mercedes"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/big_text_size" />
             </TableRow>
@@ -52,7 +51,6 @@
                     android:id="@+id/modelTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" C180"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/big_text_size" />
             </TableRow>
@@ -71,7 +69,6 @@
                     android:id="@+id/yearTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 2019"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/big_text_size" />
             </TableRow>
@@ -90,7 +87,6 @@
                     android:id="@+id/kilometerTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 10000"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/big_text_size" />
             </TableRow>
@@ -109,7 +105,6 @@
                     android:id="@+id/colorTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" Black"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/big_text_size" />
             </TableRow>
@@ -128,7 +123,6 @@
                     android:id="@+id/priceTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 100000"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/big_text_size" />
             </TableRow>
@@ -147,7 +141,6 @@
                     android:id="@+id/addedTimeTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 2021-01-01"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/big_text_size" />
 
@@ -167,7 +160,6 @@
                     android:id="@+id/updatedTimeTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 2021-01-01"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/big_text_size" />
 
