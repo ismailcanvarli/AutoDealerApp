@@ -32,8 +32,6 @@ public class AddEditCar extends AppCompatActivity {
     private String yearString;
     private String kilometerString;
     private String priceString;
-    private String addedTime;
-    private String updatedTime;
 
     //Aksiyon çubuğunu tanımla
     private ActionBar actionBar;
@@ -54,6 +52,7 @@ public class AddEditCar extends AppCompatActivity {
         // Geri butonunu etkinleştir
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setTitle("Add Car");
 
         // EditText alanlarını bul
         brandEditText = findViewById(R.id.brandEditText);
@@ -65,24 +64,18 @@ public class AddEditCar extends AppCompatActivity {
 
         fab = findViewById(R.id.fab);
 
+        // Ekleme butonuna tıklanınca yeni aracı veritabanına ekle
         fab.setOnClickListener(v -> {
             saveCarData();
         });
-
 
         actionBar.setTitle("Add Car");
 
-
-
-        // Ekleme butonunu bul
-        fab.setOnClickListener(v -> {
-            saveCarData();
-        });
     }
 
     private void saveCarData() {
         // Kullanıcıdan alınan bilgilerle yeni bir araç oluştur
-        String brand = brandEditText.getText().toString();
+        brand = brandEditText.getText().toString();
         model = modelEditText.getText().toString();
         color = colorEditText.getText().toString();
         yearString = yearEditText.getText().toString();
@@ -111,16 +104,16 @@ public class AddEditCar extends AppCompatActivity {
                 long id = dbHelper.insertCar(
                         brand,
                         model,
-                        year,
-                        kilometer,
+                        yearString,
+                        kilometerString,
                         color,
-                        price,
+                        priceString,
                         timestamp,
                         timestamp
                 );
 
                 // Ekleme işlemi başarılıysa kullanıcıya mesaj göster
-                Toast.makeText(AddEditCar.this, "Car added succesfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddEditCar.this, "Car added succesfully " + id, Toast.LENGTH_SHORT).show();
             }
         }
     }

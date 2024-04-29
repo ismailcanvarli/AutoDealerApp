@@ -27,6 +27,7 @@ public class Constants {
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + COLUMN_BRAND + " TEXT,"
             + COLUMN_MODEL + " TEXT,"
+            + COLUMN_COLOR + " TEXT,"
             + COLUMN_YEAR + " INTEGER,"
             + COLUMN_KILOMETER + " INTEGER,"
             + COLUMN_COLOR + " TEXT,"
@@ -35,5 +36,4 @@ public class Constants {
             + COLUMN_UPDATED_DATE + " TEXT"
             + ")";
 
-    // Veritabanı CRUD işlemleri
 }

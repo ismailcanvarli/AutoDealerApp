@@ -38,25 +38,26 @@ public class DbHelper extends SQLiteOpenHelper {
         // Veritabanı yazılabilir modda açılır
         SQLiteDatabase db = this.getWritableDatabase();
         // ContentValues nesnesi oluşturulur ve veriler eklenir
-        ContentValues values = new ContentValues();
+        ContentValues contentValues = new ContentValues();
 
-        // Araç bilgileri eklenir
-        values.put(Constants.COLUMN_BRAND, brand);
-        values.put(Constants.COLUMN_MODEL, model);
-        values.put(Constants.COLUMN_YEAR, year);
-        values.put(Constants.COLUMN_KILOMETER, kilometer);
-        values.put(Constants.COLUMN_COLOR, color);
-        values.put(Constants.COLUMN_PRICE, price);
-        values.put(Constants.COLUMN_ADDED_DATE, addedDate);
-        values.put(Constants.COLUMN_UPDATED_DATE, updatedDate);
+        // Araç bilgileri eklenir. Id otomatik artan olduğu için eklemeye gerek yok.
+        contentValues.put(Constants.COLUMN_BRAND, brand);
+        contentValues.put(Constants.COLUMN_MODEL, model);
+        contentValues.put(Constants.COLUMN_COLOR, color);
+        contentValues.put(Constants.COLUMN_YEAR, year);
+        contentValues.put(Constants.COLUMN_KILOMETER, kilometer);
+        contentValues.put(Constants.COLUMN_PRICE, price);
+        contentValues.put(Constants.COLUMN_ADDED_DATE, addedDate);
+        contentValues.put(Constants.COLUMN_UPDATED_DATE, updatedDate);
 
         // Veritabanına ekleme işlemi yapılır
-        long id = db.insert(Constants.TABLE_NAME, null, values);
+        long id = db.insert(Constants.TABLE_NAME, null, contentValues);
 
         db.close();
         return id;
     }
 
+    // Tüm araçları getirme işlemi
     public ArrayList<ModelCar> getAllData() {
         // ModelCar listesi oluşturulur
         ArrayList<ModelCar> carArrayList = new ArrayList<>();
@@ -74,11 +75,10 @@ public class DbHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 ModelCar modelCar = new ModelCar(
+                        // Sütun isimlerini yazarak verileri alabiliriz.
                         "" + cursor.getInt(cursor.getColumnIndexOrThrow(Constants.COLUMN_ID)),
                         "" + cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_BRAND)),
                         "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_MODEL)),
-                        "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_YEAR)),
-                        "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_KILOMETER)),
                         "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_COLOR)),
                         "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE)),
                         "" +  cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_ADDED_DATE)),

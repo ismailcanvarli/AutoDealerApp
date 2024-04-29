@@ -58,14 +58,13 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, CarDetails.class);
-                intent.putExtra("ID", id);
+                intent.putExtra("carId", id);
                 context.startActivity(intent);
             }
 
         });
 
     }
-
 
     // Araç listesinin boyutunu döndür
     @Override
@@ -76,7 +75,12 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     // Araç listesini tutacak değişken tanımla
     class CarViewHolder extends RecyclerView.ViewHolder {
         // View nesnelerini tanımla
-        TextView brandTextView, modelTextView, yearTextView, kilometerTextView, colorTextView, priceTextView;
+        TextView brandTextView;
+        TextView modelTextView;
+        TextView yearTextView;
+        TextView kilometerTextView;
+        TextView colorTextView;
+        TextView priceTextView;
 
         public CarViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,7 +92,6 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
             colorTextView = itemView.findViewById(R.id.colorTextView);
             priceTextView = itemView.findViewById(R.id.priceTextView);
         }
-
 
     }
 

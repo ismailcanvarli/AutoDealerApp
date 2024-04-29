@@ -59,6 +59,5 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         loadData(); // Veritabanından tüm araçları al ve göster
     }
-
-
+    
 }

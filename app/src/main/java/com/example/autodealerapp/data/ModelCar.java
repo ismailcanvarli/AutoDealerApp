@@ -83,7 +83,7 @@ public class ModelCar {
         this.updatedTime = updatedTime;
     }
 
-    public ModelCar(String id, String brand, String model, String year, String kilometer, String color, String price, String addedTime, String updatedTime) {
+    public ModelCar(String id, String brand, String model, String year, String kilometer, String color, String price) {
         this.id = id;
         this.brand = brand;
         this.model = model;
