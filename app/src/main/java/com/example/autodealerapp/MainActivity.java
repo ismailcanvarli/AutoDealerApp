@@ -6,9 +6,9 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.autodealerapp.adapters.CarAdapter;
 import com.example.autodealerapp.data.DbHelper;
 import com.example.autodealerapp.ui.AddEditCar;
-import com.example.autodealerapp.adapters.CarAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
@@ -59,5 +59,5 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         loadData(); // Veritabanından tüm araçları al ve göster
     }
-    
+
 }

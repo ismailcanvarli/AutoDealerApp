@@ -30,7 +30,6 @@ public class Constants {
             + COLUMN_COLOR + " TEXT,"
             + COLUMN_YEAR + " INTEGER,"
             + COLUMN_KILOMETER + " INTEGER,"
-            + COLUMN_COLOR + " TEXT,"
             + COLUMN_PRICE + " REAL,"
             + COLUMN_ADDED_DATE + " TEXT,"
             + COLUMN_UPDATED_DATE + " TEXT"

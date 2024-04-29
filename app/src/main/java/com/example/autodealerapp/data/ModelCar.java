@@ -11,6 +11,18 @@ public class ModelCar {
     private String addedTime;
     private String updatedTime;
 
+    public ModelCar(String id, String brand, String model, String year, String kilometer, String color, String price) {
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.kilometer = kilometer;
+        this.color = color;
+        this.price = price;
+        this.addedTime = addedTime;
+        this.updatedTime = updatedTime;
+    }
+
     public String getId() {
         return id;
     }
@@ -80,18 +92,6 @@ public class ModelCar {
     }
 
     public void setUpdatedTime(String updatedTime) {
-        this.updatedTime = updatedTime;
-    }
-
-    public ModelCar(String id, String brand, String model, String year, String kilometer, String color, String price) {
-        this.id = id;
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-        this.kilometer = kilometer;
-        this.color = color;
-        this.price = price;
-        this.addedTime = addedTime;
         this.updatedTime = updatedTime;
     }
 

@@ -57,9 +57,9 @@ public class AddEditCar extends AppCompatActivity {
         // EditText alanlarını bul
         brandEditText = findViewById(R.id.brandEditText);
         modelEditText = findViewById(R.id.modelEditText);
+        colorEditText = findViewById(R.id.colorEditText);
         yearEditText = findViewById(R.id.yearEditText);
         kilometerEditText = findViewById(R.id.kilometerEditText);
-        colorEditText = findViewById(R.id.colorEditText);
         priceEditText = findViewById(R.id.priceEditText);
 
         fab = findViewById(R.id.fab);
@@ -94,9 +94,9 @@ public class AddEditCar extends AppCompatActivity {
 
             if (year < 1900 || year > 2024) {
                 Toast.makeText(AddEditCar.this, "Please enter a valid year", Toast.LENGTH_SHORT).show();
-            } else if (kilometer < 0) {
+            } else if (kilometer < 0 || kilometer > 1000000) {
                 Toast.makeText(AddEditCar.this, "Please enter a valid kilometer", Toast.LENGTH_SHORT).show();
-            } else if (price < 0) {
+            } else if (price < 0 || price > 100000000) {
                 Toast.makeText(AddEditCar.this, "Please enter a valid price", Toast.LENGTH_SHORT).show();
             } else {
 
@@ -104,16 +104,16 @@ public class AddEditCar extends AppCompatActivity {
                 long id = dbHelper.insertCar(
                         brand,
                         model,
+                        color,
                         yearString,
                         kilometerString,
-                        color,
                         priceString,
                         timestamp,
                         timestamp
                 );
 
                 // Ekleme işlemi başarılıysa kullanıcıya mesaj göster
-                Toast.makeText(AddEditCar.this, "Car added succesfully " + id, Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddEditCar.this, "Car added succesfully. " + id, Toast.LENGTH_SHORT).show();
             }
         }
     }

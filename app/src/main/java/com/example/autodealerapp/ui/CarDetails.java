@@ -58,9 +58,9 @@ public class CarDetails extends AppCompatActivity {
         // View nesnelerini tanımla
         brandTv = findViewById(R.id.brandTv);
         modelTv = findViewById(R.id.modelTv);
+        colorTv = findViewById(R.id.colorTv);
         yearTv = findViewById(R.id.yearTv);
         kilometerTv = findViewById(R.id.kilometerTv);
-        colorTv = findViewById(R.id.colorTv);
         priceTv = findViewById(R.id.priceTv);
         addedTimeTv = findViewById(R.id.addedTimeTv);
         updatedTimeTv = findViewById(R.id.updatedTimeTv);
@@ -82,9 +82,9 @@ public class CarDetails extends AppCompatActivity {
                     // Verileri al
                     String brand = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_BRAND));
                     String model = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_MODEL));
+                    String color = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_COLOR));
                     String year = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_YEAR));
                     String kilometer = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_KILOMETER));
-                    String color = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_COLOR));
                     String price = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE));
                     String addedTime = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_ADDED_DATE));
                     String updatedTime = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_UPDATED_DATE));
@@ -101,9 +101,9 @@ public class CarDetails extends AppCompatActivity {
                     // View nesnelerine ata
                     brandTv.setText(brand);
                     modelTv.setText(model);
+                    colorTv.setText(color);
                     yearTv.setText(year);
                     kilometerTv.setText(kilometer);
-                    colorTv.setText(color);
                     priceTv.setText(price);
                     addedTimeTv.setText(addedDate);
                     updatedTimeTv.setText(updatedDate);
