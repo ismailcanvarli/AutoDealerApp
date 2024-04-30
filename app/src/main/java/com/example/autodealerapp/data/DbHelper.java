@@ -80,9 +80,9 @@ public class DbHelper extends SQLiteOpenHelper {
                         cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_BRAND)),
                         cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_MODEL)),
                         cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_COLOR)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_ADDED_DATE)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_UPDATED_DATE))
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_YEAR)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_KILOMETER)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE))
                 );
 
                 carArrayList.add(modelCar);

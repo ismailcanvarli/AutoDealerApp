@@ -15,9 +15,9 @@ public class ModelCar {
         this.id = id;
         this.brand = brand;
         this.model = model;
+        this.color = color;
         this.year = year;
         this.kilometer = kilometer;
-        this.color = color;
         this.price = price;
         this.addedTime = addedTime;
         this.updatedTime = updatedTime;

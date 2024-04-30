@@ -46,16 +46,16 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         String id = modelCar.getId();
         String brand = modelCar.getBrand();
         String model = modelCar.getModel();
+        String color = modelCar.getColor();
         String year = modelCar.getYear();
         String kilometer = modelCar.getKilometer();
-        String color = modelCar.getColor();
         String price = modelCar.getPrice();
 
         holder.brandTextView.setText(brand);
         holder.modelTextView.setText(model);
+        holder.colorTextView.setText(color);
         holder.yearTextView.setText(year);
         holder.kilometerTextView.setText(kilometer);
-        holder.colorTextView.setText(color);
         holder.priceTextView.setText(price);
 
 
@@ -79,9 +79,9 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         // View nesnelerini tanımla
         TextView brandTextView;
         TextView modelTextView;
+        TextView colorTextView;
         TextView yearTextView;
         TextView kilometerTextView;
-        TextView colorTextView;
         TextView priceTextView;
 
         public CarViewHolder(@NonNull View itemView) {
@@ -89,9 +89,9 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
             // View nesnelerini bağla
             brandTextView = itemView.findViewById(R.id.brandTextView);
             modelTextView = itemView.findViewById(R.id.modelTextView);
+            colorTextView = itemView.findViewById(R.id.colorTextView);
             yearTextView = itemView.findViewById(R.id.yearTextView);
             kilometerTextView = itemView.findViewById(R.id.kilometerTextView);
-            colorTextView = itemView.findViewById(R.id.colorTextView);
             priceTextView = itemView.findViewById(R.id.priceTextView);
         }
 
