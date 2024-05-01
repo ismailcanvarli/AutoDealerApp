@@ -34,7 +34,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     // Araç ekleme işlemi
-    public long insertCar(String brand, String model, String year, String kilometer, String color, String price, String addedTime, String updatedTime) {
+    public long insertCar(String brand, String model, String color, String year, String kilometer,  String price, String addedTime, String updatedTime) {
         // Veritabanı yazılabilir modda açılır
         SQLiteDatabase db = this.getWritableDatabase();
         // ContentValues nesnesi oluşturulur ve veriler eklenir
@@ -55,6 +55,29 @@ public class DbHelper extends SQLiteOpenHelper {
 
         db.close();
         return id;
+    }
+
+    // Araç güncelleme işlemi
+    public void updateCar(String id, String brand, String model, String color, String year, String kilometer,  String price, String addedTime ,String updatedTime) {
+        // Veritabanı yazılabilir modda açılır
+        SQLiteDatabase db = this.getWritableDatabase();
+        // ContentValues nesnesi oluşturulur ve veriler eklenir
+        ContentValues contentValues = new ContentValues();
+
+        // Araç bilgileri eklenir.
+        contentValues.put(Constants.COLUMN_BRAND, brand);
+        contentValues.put(Constants.COLUMN_MODEL, model);
+        contentValues.put(Constants.COLUMN_COLOR, color);
+        contentValues.put(Constants.COLUMN_YEAR, year);
+        contentValues.put(Constants.COLUMN_KILOMETER, kilometer);
+        contentValues.put(Constants.COLUMN_PRICE, price);
+        contentValues.put(Constants.COLUMN_ADDED_TIME, addedTime);
+        contentValues.put(Constants.COLUMN_UPDATED_TIME, updatedTime);
+
+        // Veritabanında güncelleme işlemi yapılır
+        db.update(Constants.TABLE_NAME, contentValues, Constants.COLUMN_ID + " = ?", new String[]{id});
+
+        db.close();
     }
 
     // Tüm araçları getirme işlemi

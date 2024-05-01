@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddEditCar.class);
+            intent.putExtra("isEditMode", false);
             startActivity(intent);
         });
 

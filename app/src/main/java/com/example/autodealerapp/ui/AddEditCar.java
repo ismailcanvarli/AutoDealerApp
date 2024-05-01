@@ -1,5 +1,6 @@
 package com.example.autodealerapp.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,12 +27,21 @@ public class AddEditCar extends AppCompatActivity {
 
 
     // Araç özelliklerini tutacak değişkenler
+    private String id;
     private String model;
     private String brand;
     private String color;
+    private String year;
+    private String kilometer;
+    private String price;
+    private String addedTime;
+    private String updatedTime;
     private String yearString;
     private String kilometerString;
     private String priceString;
+
+    // Düzenleme modunda mı?
+    private boolean isEditMode = false;
 
     //Aksiyon çubuğunu tanımla
     private ActionBar actionBar;
@@ -68,7 +78,39 @@ public class AddEditCar extends AppCompatActivity {
         // Ekleme butonuna tıklanınca yeni aracı veritabanına ekle
         fab.setOnClickListener(v -> saveCarData());
 
-        actionBar.setTitle("Add Car");
+
+        Intent intent = getIntent();
+        // Eğer düzenleme modundaysa
+        isEditMode = intent.getBooleanExtra("isEditMode", false);
+
+        if (isEditMode) {
+            // ActionBar'ı güncelle
+            actionBar.setTitle("Edit Car");
+
+            // Araç özelliklerini al
+            id = intent.getStringExtra("ID");
+            brand = intent.getStringExtra("BRAND");
+            model = intent.getStringExtra("MODEL");
+            color = intent.getStringExtra("COLOR");
+            year = intent.getStringExtra("YEAR");
+            kilometer = intent.getStringExtra("KILOMETER");
+            price = intent.getStringExtra("PRICE");
+            addedTime = intent.getStringExtra("ADDED_TIME");
+            updatedTime = intent.getStringExtra("UPDATED_TIME");
+
+            // EditText alanlarına araç özelliklerini yaz
+            brandEditText.setText(brand);
+            modelEditText.setText(model);
+            colorEditText.setText(color);
+            yearEditText.setText(year);
+            kilometerEditText.setText(kilometer);
+            priceEditText.setText(price);
+        } else {
+            // Ekleme modundaysa
+            actionBar.setTitle("Add Car");
+        }
+
+        fab.setOnClickListener(v -> saveCarData());
 
     }
 
@@ -99,20 +141,40 @@ public class AddEditCar extends AppCompatActivity {
                 Toast.makeText(AddEditCar.this, "Please enter a valid price", Toast.LENGTH_SHORT).show();
             } else {
 
-                // Veritabanına yeni aracı ekle
-                long id = dbHelper.insertCar(
-                        brand,
-                        model,
-                        color,
-                        yearString,
-                        kilometerString,
-                        priceString,
-                        timestamp,
-                        timestamp
-                );
+                if (isEditMode) {
+                    // Eğer düzenleme modundaysa
+                    // Veritabanına yeni aracı ekle
+                    dbHelper.updateCar(
+                          id,
+                            brand,
+                            model,
+                            color,
+                            yearString,
+                            kilometerString,
+                            priceString,
+                            timestamp,
+                            timestamp
+                    );
 
-                // Ekleme işlemi başarılıysa kullanıcıya mesaj göster
-                Toast.makeText(AddEditCar.this, "Car added succesfully. " + id, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddEditCar.this, "Car updated successfully. ", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    // Eğer ekleme modundaysa
+                    // Veritabanına yeni aracı ekle
+                    long id = dbHelper.insertCar(
+                            brand,
+                            model,
+                            color,
+                            yearString,
+                            kilometerString,
+                            priceString,
+                            timestamp,
+                            timestamp
+                    );
+
+                    // Ekleme işlemi başarılıysa kullanıcıya mesaj göster
+                    Toast.makeText(AddEditCar.this, "Car added successfully. " + id, Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }

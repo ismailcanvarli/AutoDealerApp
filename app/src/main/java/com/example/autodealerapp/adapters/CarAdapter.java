@@ -5,13 +5,16 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.autodealerapp.R;
+import com.example.autodealerapp.data.DbHelper;
 import com.example.autodealerapp.data.ModelCar;
+import com.example.autodealerapp.ui.AddEditCar;
 import com.example.autodealerapp.ui.CarDetails;
 
 import java.util.ArrayList;
@@ -20,10 +23,12 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
 
     private final Context context;
     private final ArrayList<ModelCar> modelCarList;
+    private final DbHelper dbHelper;
 
     public CarAdapter(Context context, ArrayList<ModelCar> modelCarList) {
         this.context = context;
         this.modelCarList = modelCarList;
+        dbHelper = new DbHelper(context);
     }
 
     // View nesnesini oluştur ve view nesnelerini bağla
@@ -50,6 +55,8 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         String year = modelCar.getYear();
         String kilometer = modelCar.getKilometer();
         String price = modelCar.getPrice();
+        String addedTime = modelCar.getAddedTime();
+        String updatedTime = modelCar.getUpdatedTime();
 
         holder.brandTextView.setText(brand);
         holder.modelTextView.setText(model);
@@ -60,12 +67,38 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
 
 
         // View nesnelerine araç özelliklerini ata
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, CarDetails.class);
-            intent.putExtra("carId", id);
-            context.startActivity(intent);
+        holder.tableLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CarDetails.class);
+                intent.putExtra("carId", id);
+                context.startActivity(intent);
+            }
         });
 
+        // Araç düzenleme sayfasına git
+        holder.carEditTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, AddEditCar.class);
+                // Araç özelliklerini intent ile gönder
+                intent.putExtra("ID", id);
+                intent.putExtra("BRAND", brand);
+                intent.putExtra("MODEL", model);
+                intent.putExtra("COLOR", color);
+                intent.putExtra("YEAR", year);
+                intent.putExtra("KILOMETER", kilometer);
+                intent.putExtra("PRICE", price);
+                intent.putExtra("ADDED_TIME", addedTime);
+                intent.putExtra("UPDATED_TIME", updatedTime);
+
+                // Düzenleme modunda olduğunu belirt
+                intent.putExtra("isEditMode", true);
+
+                // Araç düzenleme sayfasına git
+                context.startActivity(intent);
+            }
+        });
     }
 
     // Araç listesinin boyutunu döndür
@@ -83,6 +116,9 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         TextView yearTextView;
         TextView kilometerTextView;
         TextView priceTextView;
+        TextView carEditTextView;
+        TextView carDeleteTextView;
+        TableLayout tableLayout;
 
         public CarViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -93,6 +129,10 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
             yearTextView = itemView.findViewById(R.id.yearTextView);
             kilometerTextView = itemView.findViewById(R.id.kilometerTextView);
             priceTextView = itemView.findViewById(R.id.priceTextView);
+            carEditTextView = itemView.findViewById(R.id.carEditTextView);
+            carDeleteTextView = itemView.findViewById(R.id.carDeleteTextView);
+            tableLayout = itemView.findViewById(R.id.mainLayout);
+
         }
 
     }
