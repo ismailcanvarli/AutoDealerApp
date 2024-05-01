@@ -8,5 +8,11 @@
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/sort_car"
+        android:icon="@drawable/sort"
+        android:title="@string/sort_car"
+        app:showAsAction="ifRoom" />
+
 
 </menu>

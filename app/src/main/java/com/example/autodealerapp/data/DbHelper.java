@@ -126,12 +126,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
     // Tüm araçları getirme işlemi
-    public ArrayList<ModelCar> getAllData() {
+    public ArrayList<ModelCar> getAllData(String sortOrder) {
         // ModelCar listesi oluşturulur
         ArrayList<ModelCar> carArrayList = new ArrayList<>();
 
         // Tüm verileri getirme sorgusu
-        String selecetQuery = "SELECT * FROM " + Constants.TABLE_NAME;
+        String selecetQuery = "SELECT * FROM " + Constants.TABLE_NAME + " ORDER BY " + sortOrder;
 
         // Veritabanı okuma modunda açılır
         SQLiteDatabase db = getWritableDatabase();
