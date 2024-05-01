@@ -9,5 +9,7 @@
     <string name="price">Price </string>
     <string name="added_time">Added Time </string>
     <string name="updated_time">Updated Time </string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 
 </resources>

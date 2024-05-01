@@ -8,139 +8,180 @@
     app:cardElevation="@dimen/card_elevation"
     app:cardUseCompatPadding="true">
 
-
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/medium_padding"
-        android:stretchColumns="1">
+        android:orientation="horizontal">
 
-        <TableRow>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:padding="@dimen/medium_padding"
+            android:stretchColumns="2">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/brandTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:text="@string/brand"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+                <TextView
+                    android:id="@+id/brandCardTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/modelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:text="@string/model"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+                <TextView
+                    android:id="@+id/modelCardTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/colorTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:text="@string/color"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+                <TextView
+                    android:id="@+id/colorCardTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/yearTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:text="@string/year"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+                <TextView
+                    android:id="@+id/yearCardTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/kilometerTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:text="@string/kilometer"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+                <TextView
+                    android:id="@+id/kilometerCardTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/priceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:text="@string/price"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+                <TextView
+                    android:id="@+id/priceCardTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/brandTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/carEditTextView"
+                android:layout_width="@dimen/_80dp"
+                android:layout_height="@dimen/_40dp"
                 android:layout_margin="@dimen/tiny_margin"
-                android:text="@string/brand"
+                android:background="@color/lightBlue"
+                android:gravity="center"
+                android:text="@string/edit"
                 android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/brandCardTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/carDeleteTextView"
+                android:layout_width="@dimen/_80dp"
+                android:layout_height="@dimen/_40dp"
                 android:layout_margin="@dimen/tiny_margin"
+                android:background="@color/red"
+                android:gravity="center"
+                android:text="@string/delete"
                 android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold" />
 
-        </TableRow>
 
-        <TableRow>
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/modelTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/tiny_margin"
-                android:text="@string/model"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
-
-            <TextView
-                android:id="@+id/modelCardTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/tiny_margin"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/colorTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/tiny_margin"
-                android:text="@string/color"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
-
-            <TextView
-                android:id="@+id/colorCardTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/tiny_margin"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/yearTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/tiny_margin"
-                android:text="@string/year"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
-
-            <TextView
-                android:id="@+id/yearCardTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/tiny_margin"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/kilometerTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/tiny_margin"
-                android:text="@string/kilometer"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
-
-            <TextView
-                android:id="@+id/kilometerCardTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/tiny_margin"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/priceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/tiny_margin"
-                android:text="@string/price"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
-
-            <TextView
-                android:id="@+id/priceCardTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/tiny_margin"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size" />
-
-        </TableRow>
-    </TableLayout>
+    </LinearLayout>
 
 
 </androidx.cardview.widget.CardView>
