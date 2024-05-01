@@ -87,17 +87,17 @@ public class CarDetails extends AppCompatActivity {
                     String year = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_YEAR));
                     String kilometer = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_KILOMETER));
                     String price = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE));
-                    String addedTime = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_ADDED_DATE));
-                    String updatedTime = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_UPDATED_DATE));
+                    String addTime = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_ADDED_TIME));
+                    String updateTime = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_UPDATED_TIME));
 
                     // Zamanı okunabilir formata çevir
                     Calendar calendar = Calendar.getInstance(Locale.getDefault());
 
-                    calendar.setTimeInMillis(Long.parseLong(addedTime));
-                    String addedDate = "" + android.text.format.DateFormat.format("dd/MM/yyyy hh:mm:aa", calendar);
+                    calendar.setTimeInMillis(Long.parseLong(addTime));
+                    String addedTime = "" + android.text.format.DateFormat.format("dd/MM/yyyy hh:mm:aa", calendar);
 
-                    calendar.setTimeInMillis(Long.parseLong(updatedTime));
-                    String updatedDate = "" + android.text.format.DateFormat.format("dd/MM/yyyy hh:mm:aa", calendar);
+                    calendar.setTimeInMillis(Long.parseLong(updateTime));
+                    String updatedTime = "" + android.text.format.DateFormat.format("dd/MM/yyyy hh:mm:aa", calendar);
 
                     // View nesnelerine ata
                     brandTv.setText(brand);
@@ -106,8 +106,8 @@ public class CarDetails extends AppCompatActivity {
                     yearTv.setText(year);
                     kilometerTv.setText(kilometer);
                     priceTv.setText(price);
-                    addedTimeTv.setText(addedDate);
-                    updatedTimeTv.setText(updatedDate);
+                    addedTimeTv.setText(addedTime);
+                    updatedTimeTv.setText(updatedTime);
 
                 } while (cursor.moveToNext());
             }

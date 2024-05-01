@@ -19,8 +19,8 @@ public class Constants {
     public static final String COLUMN_KILOMETER = "KILOMETER";
     public static final String COLUMN_COLOR = "COLOR";
     public static final String COLUMN_PRICE = "PRICE";
-    public static final String COLUMN_ADDED_DATE = "ADDED_DATE";
-    public static final String COLUMN_UPDATED_DATE = "UPDATED_DATE";
+    public static final String COLUMN_ADDED_TIME = "ADDED_TIME";
+    public static final String COLUMN_UPDATED_TIME = "UPDATED_TIME";
 
     // Tablo oluşturma sorgusu
     public static final String CREATE_TABLE_QUERY = "CREATE TABLE " + TABLE_NAME + "("
@@ -31,8 +31,8 @@ public class Constants {
             + COLUMN_YEAR + " INTEGER,"
             + COLUMN_KILOMETER + " INTEGER,"
             + COLUMN_PRICE + " REAL,"
-            + COLUMN_ADDED_DATE + " TEXT,"
-            + COLUMN_UPDATED_DATE + " TEXT"
+            + COLUMN_ADDED_TIME + " TEXT,"
+            + COLUMN_UPDATED_TIME + " TEXT"
             + ")";
 
 }

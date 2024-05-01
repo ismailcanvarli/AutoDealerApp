@@ -34,7 +34,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     // Araç ekleme işlemi
-    public long insertCar(String brand, String model, String year, String kilometer, String color, String price, String addedDate, String updatedDate) {
+    public long insertCar(String brand, String model, String year, String kilometer, String color, String price, String addedTime, String updatedTime) {
         // Veritabanı yazılabilir modda açılır
         SQLiteDatabase db = this.getWritableDatabase();
         // ContentValues nesnesi oluşturulur ve veriler eklenir
@@ -47,8 +47,8 @@ public class DbHelper extends SQLiteOpenHelper {
         contentValues.put(Constants.COLUMN_YEAR, year);
         contentValues.put(Constants.COLUMN_KILOMETER, kilometer);
         contentValues.put(Constants.COLUMN_PRICE, price);
-        contentValues.put(Constants.COLUMN_ADDED_DATE, addedDate);
-        contentValues.put(Constants.COLUMN_UPDATED_DATE, updatedDate);
+        contentValues.put(Constants.COLUMN_ADDED_TIME, addedTime);
+        contentValues.put(Constants.COLUMN_UPDATED_TIME, updatedTime);
 
         // Veritabanına ekleme işlemi yapılır
         long id = db.insert(Constants.TABLE_NAME, null, contentValues);
