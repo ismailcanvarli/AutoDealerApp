@@ -11,5 +11,6 @@
     <string name="updated_time">Updated Time </string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="search_car">Search Car</string>
 
 </resources>

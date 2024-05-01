@@ -145,7 +145,7 @@ public class AddEditCar extends AppCompatActivity {
                     // Eğer düzenleme modundaysa
                     // Veritabanına yeni aracı ekle
                     dbHelper.updateCar(
-                          id,
+                            id,
                             brand,
                             model,
                             color,
@@ -175,6 +175,8 @@ public class AddEditCar extends AppCompatActivity {
                     // Ekleme işlemi başarılıysa kullanıcıya mesaj göster
                     Toast.makeText(AddEditCar.this, "Car added successfully. ", Toast.LENGTH_SHORT).show();
                 }
+                // Ana ekrana geri dön
+                finish();
             }
         }
     }

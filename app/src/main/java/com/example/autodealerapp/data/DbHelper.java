@@ -89,6 +89,42 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    // Arama işlemi
+    public ArrayList<ModelCar> searchCar(String query) {
+        // ModelCar listesi oluşturulur
+        ArrayList<ModelCar> carArrayList = new ArrayList<>();
+
+        // Veritabanı okuma modunda açılır
+        SQLiteDatabase db = getWritableDatabase();
+
+        String selecetQuery = "SELECT * FROM " + Constants.TABLE_NAME + " WHERE " + Constants.COLUMN_BRAND + " LIKE '%" + query + "%' OR " + Constants.COLUMN_MODEL + " LIKE '%" + query + "%' OR " + Constants.COLUMN_COLOR + " LIKE '%" + query + "%' OR " + Constants.COLUMN_YEAR + " LIKE '%" + query + "%' OR " + Constants.COLUMN_KILOMETER + " LIKE '%" + query + "%' OR " + Constants.COLUMN_PRICE + " LIKE '%" + query + "%'";
+
+        // Sorguyu çalıştır ve sonucu al
+        Cursor cursor = db.rawQuery(selecetQuery, null);
+
+        // Verileri al ve modelCarList'e ekle
+        if (cursor.moveToFirst()) {
+            do {
+                ModelCar modelCar = new ModelCar(
+                        // Sütun isimlerini yazarak verileri alabiliriz.
+                        "" + cursor.getInt(cursor.getColumnIndexOrThrow(Constants.COLUMN_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_BRAND)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_MODEL)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_COLOR)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_YEAR)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_KILOMETER)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE))
+                );
+
+                carArrayList.add(modelCar);
+            } while (cursor.moveToNext());
+        }
+
+        db.close();
+        return carArrayList;
+    }
+
+
     // Tüm araçları getirme işlemi
     public ArrayList<ModelCar> getAllData() {
         // ModelCar listesi oluşturulur
