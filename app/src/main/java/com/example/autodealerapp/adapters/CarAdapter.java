@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.autodealerapp.MainActivity;
 import com.example.autodealerapp.R;
 import com.example.autodealerapp.data.DbHelper;
 import com.example.autodealerapp.data.ModelCar;
@@ -23,11 +24,13 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
 
     private final Context context;
     private final ArrayList<ModelCar> modelCarList;
+    // Veritabanı yardımcı sınıfını tanımla
     private final DbHelper dbHelper;
 
     public CarAdapter(Context context, ArrayList<ModelCar> modelCarList) {
         this.context = context;
         this.modelCarList = modelCarList;
+        // Veritabanı yardımcı sınıfını oluştur
         dbHelper = new DbHelper(context);
     }
 
@@ -97,6 +100,28 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
 
                 // Araç düzenleme sayfasına git
                 context.startActivity(intent);
+            }
+        });
+
+        // Araç silme işlemi
+        holder.carDeleteTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Güncel pozisyonu al
+                int currentPosition = holder.getAdapterPosition();
+                if (currentPosition != RecyclerView.NO_POSITION) {
+                    // Veritabanından araç sil
+                    String id = modelCarList.get(currentPosition).getId();
+                    dbHelper.deleteCar(id);
+
+                    // Araç listesini güncelle
+                    ((MainActivity) context).onResume();
+
+                    // Araç listesini güncelle
+                    modelCarList.remove(currentPosition);
+                    notifyItemRemoved(currentPosition);
+                    notifyItemRangeChanged(currentPosition, modelCarList.size());
+                }
             }
         });
     }

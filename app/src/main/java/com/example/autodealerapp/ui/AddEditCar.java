@@ -173,7 +173,7 @@ public class AddEditCar extends AppCompatActivity {
                     );
 
                     // Ekleme işlemi başarılıysa kullanıcıya mesaj göster
-                    Toast.makeText(AddEditCar.this, "Car added successfully. " + id, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddEditCar.this, "Car added successfully. ", Toast.LENGTH_SHORT).show();
                 }
             }
         }
