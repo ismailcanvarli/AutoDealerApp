@@ -15,8 +15,8 @@
     <dimen name="title_text_size">24sp</dimen>
 
     <dimen name="card_elevation">5dp</dimen>
-
     <dimen name="card_corner_radius">12dp</dimen>
+
     <dimen name="_80dp">80dp</dimen>
     <dimen name="_40dp">40dp</dimen>
 </resources>
