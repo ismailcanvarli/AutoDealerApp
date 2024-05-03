@@ -34,7 +34,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     // Araç ekleme işlemi
-    public long insertCar(String brand, String model, String color, String year, String kilometer, String price, String addedTime, String updatedTime) {
+    public long insertCar(String brand, String model, String color, String year, String kilometer, String fuel, String gearbox, String price, String addedTime, String updatedTime) {
         // Veritabanı yazılabilir modda açılır
         SQLiteDatabase db = this.getWritableDatabase();
         // ContentValues nesnesi oluşturulur ve veriler eklenir
@@ -46,6 +46,8 @@ public class DbHelper extends SQLiteOpenHelper {
         contentValues.put(Constants.COLUMN_COLOR, color);
         contentValues.put(Constants.COLUMN_YEAR, year);
         contentValues.put(Constants.COLUMN_KILOMETER, kilometer);
+        contentValues.put(Constants.COLUMN_FUEL, fuel);
+        contentValues.put(Constants.COLUMN_GEARBOX, gearbox);
         contentValues.put(Constants.COLUMN_PRICE, price);
         contentValues.put(Constants.COLUMN_ADDED_TIME, addedTime);
         contentValues.put(Constants.COLUMN_UPDATED_TIME, updatedTime);
@@ -58,7 +60,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     // Araç güncelleme işlemi
-    public void updateCar(String id, String brand, String model, String color, String year, String kilometer, String price, String addedTime, String updatedTime) {
+    public void updateCar(String id, String brand, String model, String color, String year, String kilometer, String fuel, String gearbox, String price, String addedTime, String updatedTime) {
         // Veritabanı yazılabilir modda açılır
         SQLiteDatabase db = this.getWritableDatabase();
         // ContentValues nesnesi oluşturulur ve veriler eklenir
@@ -70,6 +72,8 @@ public class DbHelper extends SQLiteOpenHelper {
         contentValues.put(Constants.COLUMN_COLOR, color);
         contentValues.put(Constants.COLUMN_YEAR, year);
         contentValues.put(Constants.COLUMN_KILOMETER, kilometer);
+        contentValues.put(Constants.COLUMN_FUEL, fuel);
+        contentValues.put(Constants.COLUMN_GEARBOX, gearbox);
         contentValues.put(Constants.COLUMN_PRICE, price);
         contentValues.put(Constants.COLUMN_ADDED_TIME, addedTime);
         contentValues.put(Constants.COLUMN_UPDATED_TIME, updatedTime);
@@ -113,6 +117,8 @@ public class DbHelper extends SQLiteOpenHelper {
                         cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_COLOR)),
                         cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_YEAR)),
                         cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_KILOMETER)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_FUEL)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_GEARBOX)),
                         cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE))
                 );
 
@@ -150,6 +156,8 @@ public class DbHelper extends SQLiteOpenHelper {
                         cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_COLOR)),
                         cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_YEAR)),
                         cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_KILOMETER)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_FUEL)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_GEARBOX)),
                         cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE))
                 );
 

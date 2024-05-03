@@ -3,7 +3,7 @@ package com.example.autodealerapp.helpers;
 public class Constants {
 
     // Veritabanı adı
-    public static final String DATABASE_NAME = "CAR_DB";
+    public static final String DATABASE_NAME = "CAR";
 
     // Veritabanı sürümü
     public static final int DATABASE_VERSION = 1;
@@ -18,6 +18,8 @@ public class Constants {
     public static final String COLUMN_COLOR = "COLOR";
     public static final String COLUMN_YEAR = "YEAR";
     public static final String COLUMN_KILOMETER = "KILOMETER";
+    public static final String COLUMN_FUEL = "FUEL";
+    public static final String COLUMN_GEARBOX = "GEARBOX";
     public static final String COLUMN_PRICE = "PRICE";
     public static final String COLUMN_ADDED_TIME = "ADDED_TIME";
     public static final String COLUMN_UPDATED_TIME = "UPDATED_TIME";
@@ -30,6 +32,8 @@ public class Constants {
             + COLUMN_COLOR + " TEXT,"
             + COLUMN_YEAR + " TEXT,"
             + COLUMN_KILOMETER + " TEXT,"
+            + COLUMN_FUEL + " TEXT,"
+            + COLUMN_GEARBOX + " TEXT,"
             + COLUMN_PRICE + " TEXT,"
             + COLUMN_ADDED_TIME + " TEXT,"
             + COLUMN_UPDATED_TIME + " TEXT"

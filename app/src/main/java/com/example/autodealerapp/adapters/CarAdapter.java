@@ -57,6 +57,8 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         String color = modelCar.getColor();
         String year = modelCar.getYear();
         String kilometer = modelCar.getKilometer();
+        String fuel = modelCar.getFuel();
+        String gearbox = modelCar.getGearBox();
         String price = modelCar.getPrice();
         String addedTime = modelCar.getAddedTime();
         String updatedTime = modelCar.getUpdatedTime();
@@ -66,6 +68,8 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         holder.colorTextView.setText(color);
         holder.yearTextView.setText(year);
         holder.kilometerTextView.setText(kilometer);
+        holder.fuelTextView.setText(fuel);
+        holder.gearboxTextView.setText(gearbox);
         holder.priceTextView.setText(price);
 
 
@@ -91,6 +95,8 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
                 intent.putExtra("COLOR", color);
                 intent.putExtra("YEAR", year);
                 intent.putExtra("KILOMETER", kilometer);
+                intent.putExtra("FUEL", fuel);
+                intent.putExtra("GEARBOX", gearbox);
                 intent.putExtra("PRICE", price);
                 intent.putExtra("ADDED_TIME", addedTime);
                 intent.putExtra("UPDATED_TIME", updatedTime);
@@ -140,6 +146,8 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         TextView colorTextView;
         TextView yearTextView;
         TextView kilometerTextView;
+        TextView fuelTextView;
+        TextView gearboxTextView;
         TextView priceTextView;
         TextView carEditTextView;
         TextView carDeleteTextView;
@@ -153,6 +161,8 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
             colorTextView = itemView.findViewById(R.id.colorTextView);
             yearTextView = itemView.findViewById(R.id.yearTextView);
             kilometerTextView = itemView.findViewById(R.id.kilometerTextView);
+            fuelTextView = itemView.findViewById(R.id.fuelTextView);
+            gearboxTextView = itemView.findViewById(R.id.gearboxTextView);
             priceTextView = itemView.findViewById(R.id.priceTextView);
             carEditTextView = itemView.findViewById(R.id.carEditTextView);
             carDeleteTextView = itemView.findViewById(R.id.carDeleteTextView);

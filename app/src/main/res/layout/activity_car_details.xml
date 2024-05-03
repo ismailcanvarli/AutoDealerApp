@@ -109,6 +109,44 @@
                 android:textSize="@dimen/big_text_size" />
         </TableRow>
 
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/small_margin"
+                android:text="@string/fuel"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/big_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/fuelTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/big_text_size" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/small_margin"
+                android:text="@string/gearbox"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/big_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gearboxTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/big_text_size" />
+
+        </TableRow>
 
         <TableRow>
 

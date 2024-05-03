@@ -135,6 +135,51 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/fuelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:text="@string/fuel"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/fuelCardTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/gearboxTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:text="@string/gearbox"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/gearboxCardTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tiny_margin"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/medium_text_size" />
+
+            </TableRow>
+
+
+            <TableRow>
+
+                <TextView
                     android:id="@+id/priceTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

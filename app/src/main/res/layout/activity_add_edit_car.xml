@@ -64,6 +64,27 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/fuelEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:hint="@string/fuel"
+            android:inputType="text"
+            android:textColor="@color/colorTextPrimary"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/gearboxEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:hint="@string/gearbox"
+            android:inputType="text"
+            android:textColor="@color/colorTextPrimary"
+            android:textStyle="bold" />
+
+
+        <EditText
             android:id="@+id/priceEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

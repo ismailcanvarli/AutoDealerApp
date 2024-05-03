@@ -6,6 +6,8 @@
     <string name="year">Year </string>
     <string name="kilometer">Kilometer </string>
     <string name="color">Color </string>
+    <string name="fuel">Fuel </string>
+    <string name="gearbox">Gearbox </string>
     <string name="price">Price </string>
     <string name="added_time">Added Time </string>
     <string name="updated_time">Updated Time </string>

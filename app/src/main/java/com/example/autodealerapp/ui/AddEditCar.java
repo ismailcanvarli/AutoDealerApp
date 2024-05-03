@@ -23,9 +23,11 @@ public class AddEditCar extends AppCompatActivity {
     // EditText alanlarını tanımla
     private EditText brandEditText;
     private EditText modelEditText;
+    private EditText colorEditText;
     private EditText yearEditText;
     private EditText kilometerEditText;
-    private EditText colorEditText;
+    private EditText fuelEditText;
+    private EditText gearboxEditText;
     private EditText priceEditText;
 
 
@@ -36,6 +38,8 @@ public class AddEditCar extends AppCompatActivity {
     private String color;
     private String year;
     private String kilometer;
+    private String fuel;
+    private String gearbox;
     private String price;
     private String addedTime;
     private String updatedTime;
@@ -74,6 +78,8 @@ public class AddEditCar extends AppCompatActivity {
         colorEditText = findViewById(R.id.colorEditText);
         yearEditText = findViewById(R.id.yearEditText);
         kilometerEditText = findViewById(R.id.kilometerEditText);
+        fuelEditText = findViewById(R.id.fuelEditText);
+        gearboxEditText = findViewById(R.id.gearboxEditText);
         priceEditText = findViewById(R.id.priceEditText);
 
         fab = findViewById(R.id.fab);
@@ -107,6 +113,8 @@ public class AddEditCar extends AppCompatActivity {
             color = intent.getStringExtra("COLOR");
             year = intent.getStringExtra("YEAR");
             kilometer = intent.getStringExtra("KILOMETER");
+            fuel = intent.getStringExtra("FUEL");
+            gearbox = intent.getStringExtra("GEARBOX");
             price = intent.getStringExtra("PRICE");
             addedTime = intent.getStringExtra("ADDED_TIME");
             updatedTime = intent.getStringExtra("UPDATED_TIME");
@@ -117,6 +125,8 @@ public class AddEditCar extends AppCompatActivity {
             colorEditText.setText(color);
             yearEditText.setText(year);
             kilometerEditText.setText(kilometer);
+            fuelEditText.setText(fuel);
+            gearboxEditText.setText(gearbox);
             priceEditText.setText(price);
         } else {
             // Ekleme modundaysa
@@ -134,12 +144,14 @@ public class AddEditCar extends AppCompatActivity {
         color = colorEditText.getText().toString();
         yearString = yearEditText.getText().toString();
         kilometerString = kilometerEditText.getText().toString();
+        fuel = fuelEditText.getText().toString();
+        gearbox = gearboxEditText.getText().toString();
         priceString = priceEditText.getText().toString();
 
         // Şuanki tarih ve saat
         String timestamp = String.valueOf(System.currentTimeMillis());
 
-        if (brand.isEmpty() || model.isEmpty() || color.isEmpty() || yearString.isEmpty() || kilometerString.isEmpty() || priceString.isEmpty()) {
+        if (brand.isEmpty() || model.isEmpty() || color.isEmpty() || yearString.isEmpty() || kilometerString.isEmpty() || priceString.isEmpty() || fuel.isEmpty() || gearbox.isEmpty()) {
             Toast.makeText(AddEditCar.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
         } else {
             int year = Integer.parseInt(yearString);
@@ -157,14 +169,14 @@ public class AddEditCar extends AppCompatActivity {
                 if (isEditMode) {
                     // Eğer düzenleme modundaysa
                     // Veritabanına yeni aracı ekle
-                    dbHelper.updateCar(id, brand, model, color, yearString, kilometerString, priceString, timestamp, timestamp);
+                    dbHelper.updateCar(id, brand, model, color, yearString, kilometerString, fuel, gearbox, priceString, timestamp, timestamp);
 
                     Toast.makeText(AddEditCar.this, "Car updated successfully. ", Toast.LENGTH_SHORT).show();
 
                 } else {
                     // Eğer ekleme modundaysa
                     // Veritabanına yeni aracı ekle
-                    long id = dbHelper.insertCar(brand, model, color, yearString, kilometerString, priceString, timestamp, timestamp);
+                    long id = dbHelper.insertCar(brand, model, color, yearString, kilometerString, fuel, gearbox, priceString, timestamp, timestamp);
 
                     // Ekleme işlemi başarılıysa kullanıcıya mesaj göster
                     Toast.makeText(AddEditCar.this, "Car added successfully. ", Toast.LENGTH_SHORT).show();

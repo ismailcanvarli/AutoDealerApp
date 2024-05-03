@@ -8,10 +8,12 @@ public class ModelCar {
     private String kilometer;
     private String color;
     private String price;
+    private String fuel;
+    private String gearBox;
     private String addedTime;
     private String updatedTime;
 
-    public ModelCar(String id, String brand, String model, String color, String year, String kilometer, String price) {
+    public ModelCar(String id, String brand, String model, String color, String year, String kilometer, String fuel, String gearBox, String price) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -19,9 +21,28 @@ public class ModelCar {
         this.year = year;
         this.kilometer = kilometer;
         this.price = price;
+        this.fuel = fuel;
+        this.gearBox = gearBox;
         this.addedTime = addedTime;
         this.updatedTime = updatedTime;
     }
+
+    public String getGearBox() {
+        return gearBox;
+    }
+
+    public void setGearBox(String gearBox) {
+        this.gearBox = gearBox;
+    }
+
+    public String getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(String fuel) {
+        this.fuel = fuel;
+    }
+
 
     public String getId() {
         return id;

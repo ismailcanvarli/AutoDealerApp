@@ -21,9 +21,11 @@ public class CarDetails extends AppCompatActivity {
     // Araç detayları için view nesneleri tanımla
     private TextView brandTv;
     private TextView modelTv;
+    private TextView colorTv;
     private TextView yearTv;
     private TextView kilometerTv;
-    private TextView colorTv;
+    private TextView fuelTv;
+    private TextView gearboxTv;
     private TextView priceTv;
     private TextView addedTimeTv;
     private TextView updatedTimeTv;
@@ -62,6 +64,8 @@ public class CarDetails extends AppCompatActivity {
         colorTv = findViewById(R.id.colorTv);
         yearTv = findViewById(R.id.yearTv);
         kilometerTv = findViewById(R.id.kilometerTv);
+        fuelTv = findViewById(R.id.fuelTv);
+        gearboxTv = findViewById(R.id.gearboxTv);
         priceTv = findViewById(R.id.priceTv);
         addedTimeTv = findViewById(R.id.addedTimeTv);
         updatedTimeTv = findViewById(R.id.updatedTimeTv);
@@ -86,6 +90,8 @@ public class CarDetails extends AppCompatActivity {
                     String color = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_COLOR));
                     String year = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_YEAR));
                     String kilometer = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_KILOMETER));
+                    String fuel = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_FUEL));
+                    String gearbox = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_GEARBOX));
                     String price = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_PRICE));
                     String addTime = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_ADDED_TIME));
                     String updateTime = cursor.getString(cursor.getColumnIndexOrThrow(Constants.COLUMN_UPDATED_TIME));
@@ -105,6 +111,8 @@ public class CarDetails extends AppCompatActivity {
                     colorTv.setText(color);
                     yearTv.setText(year);
                     kilometerTv.setText(kilometer);
+                    fuelTv.setText(fuel);
+                    gearboxTv.setText(gearbox);
                     priceTv.setText(price);
                     addedTimeTv.setText(addedTime);
                     updatedTimeTv.setText(updatedTime);
