@@ -71,6 +71,7 @@
             android:hint="@string/price"
             android:inputType="numberDecimal"
             android:textColor="@color/colorTextPrimary"
+            android:imeOptions="actionDone"
             android:textColorHint="@color/colorTextPrimary" />
 
     </LinearLayout>

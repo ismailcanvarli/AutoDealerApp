@@ -2,7 +2,10 @@ package com.example.autodealerapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -77,7 +80,17 @@ public class AddEditCar extends AppCompatActivity {
 
         // Ekleme butonuna tıklanınca yeni aracı veritabanına ekle
         fab.setOnClickListener(v -> saveCarData());
-
+        // Fiyat alanına tıklanınca klavye açılsın ve ekleme butonuna tıklanınca kayıt işlemi yapılsın
+        priceEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    fab.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
 
         Intent intent = getIntent();
         // Eğer düzenleme modundaysa
@@ -144,33 +157,14 @@ public class AddEditCar extends AppCompatActivity {
                 if (isEditMode) {
                     // Eğer düzenleme modundaysa
                     // Veritabanına yeni aracı ekle
-                    dbHelper.updateCar(
-                            id,
-                            brand,
-                            model,
-                            color,
-                            yearString,
-                            kilometerString,
-                            priceString,
-                            timestamp,
-                            timestamp
-                    );
+                    dbHelper.updateCar(id, brand, model, color, yearString, kilometerString, priceString, timestamp, timestamp);
 
                     Toast.makeText(AddEditCar.this, "Car updated successfully. ", Toast.LENGTH_SHORT).show();
 
                 } else {
                     // Eğer ekleme modundaysa
                     // Veritabanına yeni aracı ekle
-                    long id = dbHelper.insertCar(
-                            brand,
-                            model,
-                            color,
-                            yearString,
-                            kilometerString,
-                            priceString,
-                            timestamp,
-                            timestamp
-                    );
+                    long id = dbHelper.insertCar(brand, model, color, yearString, kilometerString, priceString, timestamp, timestamp);
 
                     // Ekleme işlemi başarılıysa kullanıcıya mesaj göster
                     Toast.makeText(AddEditCar.this, "Car added successfully. ", Toast.LENGTH_SHORT).show();
