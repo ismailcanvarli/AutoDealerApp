@@ -15,11 +15,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/small_margin"
-        android:backgroundTint="@color/colorTextPrimary"
+        android:backgroundTint="@color/colorAccent"
         android:elevation="@dimen/card_elevation"
-        android:src="@drawable/baseline_add_24"
-        android:tint="@color/white"
-        app:pressedTranslationZ="10dp" />
+        android:src="@drawable/baseline_add_24_white"
+        app:pressedTranslationZ="10dp"
+        app:tint="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/carRecyclerView"
