@@ -30,6 +30,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/tiny_margin"
                     android:text="@string/brand"
+                    android:textStyle="bold"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/medium_text_size" />
 
@@ -52,7 +53,8 @@
                     android:layout_margin="@dimen/tiny_margin"
                     android:text="@string/model"
                     android:textColor="@color/colorTextPrimary"
-                    android:textSize="@dimen/medium_text_size" />
+                    android:textSize="@dimen/medium_text_size"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/modelCardTv"
@@ -73,7 +75,8 @@
                     android:layout_margin="@dimen/tiny_margin"
                     android:text="@string/color"
                     android:textColor="@color/colorTextPrimary"
-                    android:textSize="@dimen/medium_text_size" />
+                    android:textSize="@dimen/medium_text_size"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/colorCardTv"
@@ -94,7 +97,8 @@
                     android:layout_margin="@dimen/tiny_margin"
                     android:text="@string/year"
                     android:textColor="@color/colorTextPrimary"
-                    android:textSize="@dimen/medium_text_size" />
+                    android:textSize="@dimen/medium_text_size"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/yearCardTv"
@@ -115,7 +119,8 @@
                     android:layout_margin="@dimen/tiny_margin"
                     android:text="@string/kilometer"
                     android:textColor="@color/colorTextPrimary"
-                    android:textSize="@dimen/medium_text_size" />
+                    android:textSize="@dimen/medium_text_size"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/kilometerCardTv"
@@ -136,7 +141,8 @@
                     android:layout_margin="@dimen/tiny_margin"
                     android:text="@string/price"
                     android:textColor="@color/colorTextPrimary"
-                    android:textSize="@dimen/medium_text_size" />
+                    android:textSize="@dimen/medium_text_size"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/priceCardTv"
@@ -165,8 +171,7 @@
                 android:gravity="center"
                 android:text="@string/edit"
                 android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size"
-                android:textStyle="bold" />
+                android:textSize="@dimen/medium_text_size" />
 
             <TextView
                 android:id="@+id/carDeleteTextView"
@@ -177,8 +182,7 @@
                 android:gravity="center"
                 android:text="@string/delete"
                 android:textColor="@color/colorTextPrimary"
-                android:textSize="@dimen/medium_text_size"
-                android:textStyle="bold" />
+                android:textSize="@dimen/medium_text_size" />
 
 
         </LinearLayout>
