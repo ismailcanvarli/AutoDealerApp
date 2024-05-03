@@ -11,7 +11,7 @@ public class ModelCar {
     private String addedTime;
     private String updatedTime;
 
-    public ModelCar(String id, String brand, String model, String color, String year, String kilometer,  String price) {
+    public ModelCar(String id, String brand, String model, String color, String year, String kilometer, String price) {
         this.id = id;
         this.brand = brand;
         this.model = model;

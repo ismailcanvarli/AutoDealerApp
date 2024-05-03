@@ -21,7 +21,7 @@
             android:hint="@string/brand"
             android:inputType="text"
             android:textColor="@color/colorTextPrimary"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/modelEditText"
@@ -31,7 +31,7 @@
             android:hint="@string/model"
             android:inputType="text"
             android:textColor="@color/colorTextPrimary"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/colorEditText"
@@ -41,7 +41,7 @@
             android:hint="@string/color"
             android:inputType="text"
             android:textColor="@color/colorTextPrimary"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/yearEditText"
@@ -51,7 +51,7 @@
             android:hint="@string/year"
             android:inputType="number"
             android:textColor="@color/colorTextPrimary"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/kilometerEditText"
@@ -61,7 +61,7 @@
             android:hint="@string/kilometer"
             android:inputType="number"
             android:textColor="@color/colorTextPrimary"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/priceEditText"
@@ -72,7 +72,7 @@
             android:imeOptions="actionDone"
             android:inputType="numberDecimal"
             android:textColor="@color/colorTextPrimary"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 
