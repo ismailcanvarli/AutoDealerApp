@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Auto Dealer App</string>
-    <string name="auto_dealer_app">Auto Dealer App</string>
+    <string name="app_name">Auto Dealer</string>
     <string name="brand">Brand </string>
     <string name="model">Model </string>
     <string name="year">Year </string>
