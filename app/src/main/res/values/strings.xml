@@ -14,5 +14,9 @@
     <string name="delete">Delete</string>
     <string name="search_car">Search Car</string>
     <string name="sort_car">Sort Car</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
 
 </resources>
