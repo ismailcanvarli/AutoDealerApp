@@ -1,46 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <!-- Fab Button araba ekelemek için -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/small_margin"
-        android:backgroundTint="@color/colorAccent"
-        android:elevation="@dimen/card_elevation"
-        android:src="@drawable/baseline_add_24_white"
-        app:pressedTranslationZ="10dp"
-        app:tint="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/carRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="3dp"
+        android:layout_margin="@dimen/tiny_margin"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/row_car_item" />
+        tools:listitem="@layout/row_car_item"
+        android:layout_weight="2"/>
 
-    <Button
-        android:id="@+id/button_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="3dp"
-        android:backgroundTint="@color/colorAccent"
-        android:text="@string/logout" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tiny_margin"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/logout" />
+
+        <!-- Fab Button araba ekelemek için -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/tiny_margin"
+            android:layout_marginBottom="9dp"
+            android:backgroundTint="@color/colorAccent"
+            android:contentDescription="TODO"
+            android:elevation="@dimen/card_elevation"
+            android:src="@drawable/baseline_add_24_white"
+            app:pressedTranslationZ="10dp"
+            app:tint="@color/white" />
+
+    </RelativeLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
