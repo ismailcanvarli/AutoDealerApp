@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/medium_padding"
-    tools:context=".Login">
+    tools:context=".auth.Login">
 
     <TextView
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
         android:layout_margin="@dimen/small_margin">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email"
+            android:id="@+id/edit_text_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email" />
@@ -36,17 +36,28 @@
         android:layout_margin="@dimen/small_margin">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password"
+            android:id="@+id/edit_text_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/button_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/medium_margin"
+        android:backgroundTint="#FF9800"
         android:text="@string/login" />
+
+    <TextView
+        android:id="@+id/text_view_register_now"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_margin"
+        android:gravity="center"
+        android:text="@string/click_here_to_register"
+        android:textSize="@dimen/big_text_size"
+        android:textStyle="bold" />
 
 </LinearLayout>

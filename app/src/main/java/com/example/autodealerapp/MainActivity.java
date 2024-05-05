@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SearchView;
 
 import androidx.appcompat.app.ActionBar;
@@ -14,10 +16,13 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.autodealerapp.adapters.CarAdapter;
+import com.example.autodealerapp.auth.Login;
 import com.example.autodealerapp.data.DbHelper;
 import com.example.autodealerapp.helpers.Constants;
 import com.example.autodealerapp.ui.AddEditCar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private DbHelper dbHelper;
     // Araçları göstermek için adapter tanımla
     private CarAdapter carAdapter;
+    private FirebaseAuth mAuth;
+    private Button buttonLogout;
+    private FirebaseUser currentUser;
 
     // Sıralama seçenekleri
     // Eklenme zamanına göre sıralama
@@ -54,6 +62,29 @@ public class MainActivity extends AppCompatActivity {
 
         // Veritabanı yardımcı sınıfını oluştur
         dbHelper = new DbHelper(this);
+
+        // Firebase Auth sınıfını oluştur
+        mAuth = FirebaseAuth.getInstance();
+        buttonLogout = findViewById(R.id.button_logout);
+        currentUser = mAuth.getCurrentUser();
+
+        // Kullanıcı giriş yapmış mı kontrol edilir ve giriş yapmış ise ana ekrana yönlendirme yapılır
+        if (currentUser == null) {
+            Intent intent = new Intent(getApplicationContext(), Login.class);
+            startActivity(intent);
+            finish();
+        }
+
+        // Çıkış yap butonuna tıklanınca yapılacak işlemler
+        buttonLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // ActionBar'ı tanımla
         actionBar = getSupportActionBar();
