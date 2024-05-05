@@ -118,6 +118,13 @@ public class MainActivity extends AppCompatActivity {
         loadData(currentSortOrder); // Veritabanından tüm araçları al ve göster
     }
 
+    // Uygulama durdurulduğunda oturumu kapat
+    @Override
+    protected void onStop() {
+        super.onStop();
+        FirebaseAuth.getInstance().signOut();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Menüyü yükle
