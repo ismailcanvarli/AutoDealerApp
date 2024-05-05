@@ -74,7 +74,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
 
 
         // View nesnelerine araç özelliklerini ata
-        holder.tableLayout.setOnClickListener(new View.OnClickListener() {
+        holder.tableLayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, CarDetails.class);
@@ -151,7 +151,8 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         TextView priceTextView;
         TextView carEditTextView;
         TextView carDeleteTextView;
-        TableLayout tableLayout;
+        TableLayout tableLayout1;
+        TableLayout tableLayout2;
 
         public CarViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -166,7 +167,8 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
             priceTextView = itemView.findViewById(R.id.priceTextView);
             carEditTextView = itemView.findViewById(R.id.carEditTextView);
             carDeleteTextView = itemView.findViewById(R.id.carDeleteTextView);
-            tableLayout = itemView.findViewById(R.id.mainLayout);
+            tableLayout1 = itemView.findViewById(R.id.mainLayout1);
+            tableLayout2 = itemView.findViewById(R.id.mainLayout2);
 
         }
 
