@@ -1,9 +1,17 @@
 # Auto Dealer App
 
-![Image 1](link_to_image1) ![Image 2](link_to_image2) ![Image 3](link_to_image3) ![Image 4](link_to_image4) ![Image 5](link_to_image5) ![Image 6](link_to_image6)
-
 ## Project Description
 The Auto Dealer App is a mobile application developed in Java. This application is designed to allow users to view existing vehicles, add new vehicles, sort and filter existing vehicles, and delete them as well. Users can browse the vehicle catalog within the app, select their desired vehicle, and filter vehicles based on various criteria. Additionally, users have the ability to delete vehicles at any time, enhancing the flexibility and user-friendliness of the application.
+
+<div align="center">
+  <img src="https://github.com/ismailcanvarli/AutoDealerApp/assets/92732380/1cea69a7-d9b3-46ff-8a8c-a8b981b40d5c" width="300" height="500" />
+  <img src="https://github.com/ismailcanvarli/AutoDealerApp/assets/92732380/329b8218-b8de-4a7d-aa87-286e240c32ac" width="300" height="500" />
+</div>
+
+<div align="center">
+  <img src="https://github.com/ismailcanvarli/AutoDealerApp/assets/92732380/0958ff5a-cf27-4c8e-a995-529ed523ccbb" width="300" height="500" />
+  <img src="https://github.com/ismailcanvarli/AutoDealerApp/assets/92732380/33fd7e98-d04a-47ca-bfa0-39ea97c41180" width="300" height="500" />
+</div>
 
 ## Technologies Used
 - Programming Language: Java
