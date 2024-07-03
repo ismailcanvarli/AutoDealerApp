@@ -2,10 +2,8 @@ package com.example.autodealerapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -63,16 +61,20 @@ public class AddEditCar extends AppCompatActivity {
         // Veritabanı yardımcı sınıfını oluştur
         dbHelper = new DbHelper(this);
 
-        // ActionBar'ı tanımla
-        actionBar = getSupportActionBar();
+        // Bileşenleri başlat
+        initViews();
 
-        // Geri butonunu etkinleştir
-        assert actionBar != null;
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setTitle("Add Car");
+        // ActionBar'ı ayarla
+        setupActionBar();
 
-        // EditText alanlarını bul
+        // EditMode kontrolü ve verileri yükle
+        checkEditModeAndLoadData();
+
+        // Olay dinleyicilerini ayarla
+        setupEventListeners();
+    }
+
+    private void initViews() {
         brandEditText = findViewById(R.id.brandEditText);
         modelEditText = findViewById(R.id.modelEditText);
         colorEditText = findViewById(R.id.colorEditText);
@@ -81,32 +83,23 @@ public class AddEditCar extends AppCompatActivity {
         fuelEditText = findViewById(R.id.fuelEditText);
         gearboxEditText = findViewById(R.id.gearboxEditText);
         priceEditText = findViewById(R.id.priceEditText);
-
         fab = findViewById(R.id.fab);
+    }
 
-        // Ekleme butonuna tıklanınca yeni aracı veritabanına ekle
-        fab.setOnClickListener(v -> saveCarData());
-        // Fiyat alanına tıklanınca klavye açılsın ve ekleme butonuna tıklanınca kayıt işlemi yapılsın
-        priceEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    fab.performClick();
-                    return true;
-                }
-                return false;
-            }
-        });
+    private void setupActionBar() {
+        actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setTitle(isEditMode ? "Edit Car" : "Add Car");
+        }
+    }
 
+    private void checkEditModeAndLoadData() {
         Intent intent = getIntent();
-        // Eğer düzenleme modundaysa
         isEditMode = intent.getBooleanExtra("isEditMode", false);
 
         if (isEditMode) {
-            // ActionBar'ı güncelle
-            actionBar.setTitle("Edit Car");
-
-            // Araç özelliklerini al
             id = intent.getStringExtra("ID");
             brand = intent.getStringExtra("BRAND");
             model = intent.getStringExtra("MODEL");
@@ -128,17 +121,40 @@ public class AddEditCar extends AppCompatActivity {
             fuelEditText.setText(fuel);
             gearboxEditText.setText(gearbox);
             priceEditText.setText(price);
-        } else {
-            // Ekleme modundaysa
-            actionBar.setTitle("Add Car");
         }
-
-        fab.setOnClickListener(v -> saveCarData());
-
     }
 
+    private void setupEventListeners() {
+        fab.setOnClickListener(v -> saveCarData());
+
+        priceEditText.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                fab.performClick();
+                return true;
+            }
+            return false;
+        });
+    }
+
+
     private void saveCarData() {
-        // Kullanıcıdan alınan bilgilerle yeni bir araç oluştur
+        if (!retrieveAndValidateInputs()) {
+            return;
+        }
+
+        String timestamp = String.valueOf(System.currentTimeMillis());
+
+        if (isEditMode) {
+            updateCarInDatabase(timestamp);
+        } else {
+            addCarToDatabase(timestamp);
+        }
+
+        Toast.makeText(AddEditCar.this, isEditMode ? "Car updated successfully." : "Car added successfully.", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    private boolean retrieveAndValidateInputs() {
         brand = brandEditText.getText().toString();
         model = modelEditText.getText().toString();
         color = colorEditText.getText().toString();
@@ -148,49 +164,64 @@ public class AddEditCar extends AppCompatActivity {
         gearbox = gearboxEditText.getText().toString();
         priceString = priceEditText.getText().toString();
 
-        // Şuanki tarih ve saat
-        String timestamp = String.valueOf(System.currentTimeMillis());
-
         if (brand.isEmpty() || model.isEmpty() || color.isEmpty() || yearString.isEmpty() || kilometerString.isEmpty() || priceString.isEmpty() || fuel.isEmpty() || gearbox.isEmpty()) {
             Toast.makeText(AddEditCar.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-        } else {
+            return false;
+        }
+
+        try {
             int year = Integer.parseInt(yearString);
             int kilometer = Integer.parseInt(kilometerString);
             double price = Double.parseDouble(priceString);
 
-            if (year < 1900 || year > 2024) {
-                Toast.makeText(AddEditCar.this, "Please enter a valid year", Toast.LENGTH_SHORT).show();
-            } else if (kilometer < 0 || kilometer > 1000000) {
-                Toast.makeText(AddEditCar.this, "Please enter a valid kilometer", Toast.LENGTH_SHORT).show();
-            } else if (price < 0 || price > 100000000) {
-                Toast.makeText(AddEditCar.this, "Please enter a valid price", Toast.LENGTH_SHORT).show();
-            } else {
-
-                if (isEditMode) {
-                    // Eğer düzenleme modundaysa
-                    // Veritabanına yeni aracı ekle
-                    dbHelper.updateCar(id, brand, model, color, yearString, kilometerString, fuel, gearbox, priceString, timestamp, timestamp);
-
-                    Toast.makeText(AddEditCar.this, "Car updated successfully. ", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    // Eğer ekleme modundaysa
-                    // Veritabanına yeni aracı ekle
-                    long id = dbHelper.insertCar(brand, model, color, yearString, kilometerString, fuel, gearbox, priceString, timestamp, timestamp);
-
-                    // Ekleme işlemi başarılıysa kullanıcıya mesaj göster
-                    Toast.makeText(AddEditCar.this, "Car added successfully. ", Toast.LENGTH_SHORT).show();
-                }
-                // Ana ekrana geri dön
-                finish();
+            if (!isValidYear(year) || !isValidKilometer(kilometer) || !isValidPrice(price)) {
+                return false;
             }
+        } catch (NumberFormatException e) {
+            Toast.makeText(AddEditCar.this, "Please enter valid numerical values", Toast.LENGTH_SHORT).show();
+            return false;
         }
+
+        return true;
     }
+
+    private boolean isValidYear(int year) {
+        if (year < 1900 || year > 2024) {
+            Toast.makeText(AddEditCar.this, "Please enter a valid year", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidKilometer(int kilometer) {
+        if (kilometer < 0 || kilometer > 1000000) {
+            Toast.makeText(AddEditCar.this, "Please enter a valid kilometer", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidPrice(double price) {
+        if (price < 0 || price > 100000000) {
+            Toast.makeText(AddEditCar.this, "Please enter a valid price", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    private void updateCarInDatabase(String timestamp) {
+        dbHelper.updateCar(id, brand, model, color, yearString, kilometerString, fuel, gearbox, priceString, timestamp, timestamp);
+    }
+
+    private void addCarToDatabase(String timestamp) {
+        dbHelper.insertCar(brand, model, color, yearString, kilometerString, fuel, gearbox, priceString, timestamp, timestamp);
+    }
+
 
     // Geri butonuna tıklanınca geri git
     @Override
     public boolean onSupportNavigateUp() {
-        onBackPressed();
+        getOnBackPressedDispatcher().onBackPressed();
         return super.onSupportNavigateUp();
     }
 }
