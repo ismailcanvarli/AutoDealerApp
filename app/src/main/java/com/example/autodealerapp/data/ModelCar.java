@@ -42,8 +42,7 @@ public class ModelCar {
     public void setFuel(String fuel) {
         this.fuel = fuel;
     }
-
-
+    
     public String getId() {
         return id;
     }
